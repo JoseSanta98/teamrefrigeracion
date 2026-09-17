@@ -24,15 +24,12 @@ function Mark({ compact = false }: { compact?: boolean }) {
   );
 }
 
-function PhotoPlaceholder({ title, caption, tone = "cool" }: { title: string; caption: string; tone?: "cool" | "warm" }) {
+function SiteImage({ title, caption, src, alt }: { title: string; caption: string; src: string; alt: string }) {
   return (
-    <figure className={`photo-placeholder photo-placeholder--${tone}`}>
-      <div className="placeholder-grid" aria-hidden="true" />
-      <div className="placeholder-orbit placeholder-orbit--one" aria-hidden="true" />
-      <div className="placeholder-orbit placeholder-orbit--two" aria-hidden="true" />
-      <div className="placeholder-lines" aria-hidden="true"><i /><i /><i /></div>
+    <figure className="site-image">
+      <img src={src} alt={alt} />
       <figcaption>
-        <span className="placeholder-kicker">Imagen pendiente</span>
+        <span className="image-kicker">Imagen temporal</span>
         <strong>{title}</strong>
         <small>{caption}</small>
       </figcaption>
@@ -89,7 +86,12 @@ function Hero() {
       </div>
       <div className="hero-media">
         <div className="hero-stamp"><span>Desde</span><strong>+15</strong><small>años</small></div>
-        <PhotoPlaceholder title="Instalación industrial" caption="Sustituir por una fotografía propia de equipo o proyecto terminado." />
+        <SiteImage
+          src="/images/hero-hvac-temporal.png"
+          alt="Equipos de climatización instalados en una azotea comercial"
+          title="Instalación industrial"
+          caption="Imagen de referencia. Sustituir por un proyecto real de Team Refrigeración."
+        />
       </div>
     </section>
   );
@@ -184,7 +186,12 @@ function Company() {
           <a href="#contacto" className="button button--outline">Hablar con Team <span>↗</span></a>
         </div>
         <div className="company-media">
-          <PhotoPlaceholder title="Equipo técnico o proyecto terminado" caption="Sustituir por una fotografía real de Team trabajando en campo." tone="warm" />
+          <SiteImage
+            src="/images/cuarto-frio-temporal.png"
+            alt="Entrada a un cuarto frío comercial"
+            title="Cuartos fríos y conservación"
+            caption="Imagen de referencia. Sustituir por un proyecto real de Team Refrigeración."
+          />
           <div className="company-note"><span>01</span><p>Diagnóstico antes de<br />cambiar una pieza.</p></div>
         </div>
       </div>
