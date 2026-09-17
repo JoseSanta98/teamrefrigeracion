@@ -17,7 +17,7 @@ pnpm dev
 
 ## Sustitución de imágenes
 
-Los dos espacios de fotografía están diseñados como placeholders visibles. Cuando estén disponibles las imágenes finales, sustituir `PhotoPlaceholder` en `src/main.tsx` por imágenes optimizadas y conservar la proporción actual de cada bloque.
+Las imágenes del sitio viven en `public/images/`. Para reemplazarlas, conserva el nombre y la proporción del archivo, o actualiza la ruta correspondiente en `src/main.tsx`.
 
 ## Datos confirmados
 

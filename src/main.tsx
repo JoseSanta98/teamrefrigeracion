@@ -29,13 +29,36 @@ function SiteImage({ title, caption, src, alt }: { title: string; caption: strin
     <figure className="site-image">
       <img src={src} alt={alt} />
       <figcaption>
-        <span className="image-kicker">Imagen temporal</span>
         <strong>{title}</strong>
         <small>{caption}</small>
       </figcaption>
     </figure>
   );
 }
+
+const heroSlides = [
+  {
+    image: "/images/instalacion-hvac.png",
+    alt: "Equipos de climatización instalados en una azotea comercial",
+    category: "Operación industrial",
+    title: "Instalación y mantenimiento",
+    detail: "Soluciones para equipos que mantienen en marcha espacios y procesos.",
+  },
+  {
+    image: "/images/refrigeracion-comercial.png",
+    alt: "Entrada a un cuarto frío comercial",
+    category: "Refrigeración comercial",
+    title: "Conservación bajo control",
+    detail: "Cuartos fríos y equipos de refrigeración para operación continua.",
+  },
+  {
+    image: "/images/climatizacion-interior.png",
+    alt: "Espacio comercial climatizado con equipo de aire acondicionado",
+    category: "Confort y eficiencia",
+    title: "Climatización de espacios",
+    detail: "Equipos y atención técnica para hogares, comercios y oficinas.",
+  },
+];
 
 function WhatsAppButton({ floating = false }: { floating?: boolean }) {
   const href = `https://wa.me/${WHATSAPP}?text=${encodeURIComponent(WHATSAPP_MESSAGE)}`;
@@ -73,6 +96,9 @@ function Header() {
 }
 
 function Hero() {
+  const [activeSlide, setActiveSlide] = useState(0);
+  const slide = heroSlides[activeSlide];
+
   return (
     <section id="inicio" className="hero shell">
       <div className="hero-copy">
@@ -86,12 +112,18 @@ function Hero() {
       </div>
       <div className="hero-media">
         <div className="hero-stamp"><span>Desde</span><strong>+15</strong><small>años</small></div>
-        <SiteImage
-          src="/images/hero-hvac-temporal.png"
-          alt="Equipos de climatización instalados en una azotea comercial"
-          title="Instalación industrial"
-          caption="Imagen de referencia. Sustituir por un proyecto real de Team Refrigeración."
-        />
+        <section className="hero-carousel" aria-label="Soluciones destacadas">
+          <img src={slide.image} alt={slide.alt} />
+          <div className="carousel-nav" aria-label="Elegir solución destacada">
+            {heroSlides.map((item, index) => (
+              <button key={item.title} className={index === activeSlide ? "is-active" : ""} onClick={() => setActiveSlide(index)} aria-label={"Ver " + item.title} aria-pressed={index === activeSlide} />
+            ))}
+          </div>
+          <div className="hero-slide-card">
+            <div><span className="slide-category"><i /> {slide.category}</span><strong>{slide.title}</strong></div>
+            <p>{slide.detail}</p>
+          </div>
+        </section>
       </div>
     </section>
   );
@@ -187,10 +219,10 @@ function Company() {
         </div>
         <div className="company-media">
           <SiteImage
-            src="/images/cuarto-frio-temporal.png"
+            src="/images/refrigeracion-comercial.png"
             alt="Entrada a un cuarto frío comercial"
             title="Cuartos fríos y conservación"
-            caption="Imagen de referencia. Sustituir por un proyecto real de Team Refrigeración."
+            caption="Soluciones térmicas para conservar producto y sostener la operación."
           />
           <div className="company-note"><span>01</span><p>Diagnóstico antes de<br />cambiar una pieza.</p></div>
         </div>
