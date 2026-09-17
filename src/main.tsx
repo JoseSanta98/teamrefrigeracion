@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { createRoot } from "react-dom/client";
 import "./styles.css";
 
@@ -9,15 +9,14 @@ const WHATSAPP_MESSAGE = "Hola, deseo solicitar una cotización";
 function Mark({ compact = false }: { compact?: boolean }) {
   return (
     <div className={`brand-mark ${compact ? "brand-mark--compact" : ""}`} aria-label="Team Refrigeración">
-      <svg viewBox="0 0 86 70" aria-hidden="true">
-        <path className="mark-plum" d="M4 57 25 19l21 38H4Z" />
-        <path className="mark-gold" d="m25 19 18-15 24 53H46L25 19Z" />
-        <path className="mark-green" d="M43 4 65 0l17 57H67L43 4Z" />
-        <path className="mark-cut" d="M26 19h17l-8 15-9-15Z" />
+      <svg viewBox="0 0 61 32" aria-hidden="true">
+        <path className="mark-green" d="M3 28 17 4h10L13 28Z" />
+        <path className="mark-plum" d="M21 28 35 4h10L31 28Z" />
+        <path className="mark-gold" d="M39 28 53 4h10L49 28Z" />
       </svg>
       {!compact && (
         <span className="brand-name">
-          <strong>TEAM</strong>
+          <strong>Team</strong>
           <em>Refrigeración</em>
         </span>
       )}
@@ -25,21 +24,41 @@ function Mark({ compact = false }: { compact?: boolean }) {
   );
 }
 
-function PhotoPlaceholder({ title, caption, tone = "cool" }: { title: string; caption: string; tone?: "cool" | "warm" }) {
+function SiteImage({ title, caption, src, alt }: { title: string; caption: string; src: string; alt: string }) {
   return (
-    <figure className={`photo-placeholder photo-placeholder--${tone}`}>
-      <div className="placeholder-grid" aria-hidden="true" />
-      <div className="placeholder-orbit placeholder-orbit--one" aria-hidden="true" />
-      <div className="placeholder-orbit placeholder-orbit--two" aria-hidden="true" />
-      <div className="placeholder-lines" aria-hidden="true"><i /><i /><i /></div>
+    <figure className="site-image">
+      <img src={src} alt={alt} />
       <figcaption>
-        <span className="placeholder-kicker">Imagen pendiente</span>
         <strong>{title}</strong>
         <small>{caption}</small>
       </figcaption>
     </figure>
   );
 }
+
+const heroSlides = [
+  {
+    image: "/images/instalacion-hvac.png",
+    alt: "Equipos de climatización instalados en una azotea comercial",
+    category: "Operación industrial",
+    title: "Instalación y mantenimiento",
+    detail: "Soluciones para equipos que mantienen en marcha espacios y procesos.",
+  },
+  {
+    image: "/images/refrigeracion-comercial.png",
+    alt: "Entrada a un cuarto frío comercial",
+    category: "Refrigeración comercial",
+    title: "Conservación bajo control",
+    detail: "Cuartos fríos y equipos de refrigeración para operación continua.",
+  },
+  {
+    image: "/images/climatizacion-interior.png",
+    alt: "Espacio comercial climatizado con equipo de aire acondicionado",
+    category: "Confort y eficiencia",
+    title: "Climatización de espacios",
+    detail: "Equipos y atención técnica para hogares, comercios y oficinas.",
+  },
+];
 
 function WhatsAppButton({ floating = false }: { floating?: boolean }) {
   const href = `https://wa.me/${WHATSAPP}?text=${encodeURIComponent(WHATSAPP_MESSAGE)}`;
@@ -77,6 +96,18 @@ function Header() {
 }
 
 function Hero() {
+  const [activeSlide, setActiveSlide] = useState(0);
+  const [isCarouselPaused, setIsCarouselPaused] = useState(false);
+  const slide = heroSlides[activeSlide];
+
+  useEffect(() => {
+    if (isCarouselPaused) return;
+    const interval = window.setInterval(() => {
+      setActiveSlide((current) => (current + 1) % heroSlides.length);
+    }, 6500);
+    return () => window.clearInterval(interval);
+  }, [isCarouselPaused]);
+
   return (
     <section id="inicio" className="hero shell">
       <div className="hero-copy">
@@ -90,7 +121,18 @@ function Hero() {
       </div>
       <div className="hero-media">
         <div className="hero-stamp"><span>Desde</span><strong>+15</strong><small>años</small></div>
-        <PhotoPlaceholder title="Instalación industrial" caption="Sustituir por una fotografía propia de equipo o proyecto terminado." />
+        <section className="hero-carousel" aria-label="Soluciones destacadas" onMouseEnter={() => setIsCarouselPaused(true)} onMouseLeave={() => setIsCarouselPaused(false)} onFocus={() => setIsCarouselPaused(true)} onBlur={() => setIsCarouselPaused(false)}>
+          <img key={slide.image} src={slide.image} alt={slide.alt} />
+          <div className="carousel-nav" aria-label="Elegir solución destacada">
+            {heroSlides.map((item, index) => (
+              <button key={item.title} className={index === activeSlide ? "is-active" : ""} onClick={() => setActiveSlide(index)} aria-label={"Ver " + item.title} aria-pressed={index === activeSlide} />
+            ))}
+          </div>
+          <div className="hero-slide-card">
+            <div><span className="slide-category"><i /> {slide.category}</span><strong>{slide.title}</strong></div>
+            <p>{slide.detail}</p>
+          </div>
+        </section>
       </div>
     </section>
   );
@@ -185,7 +227,12 @@ function Company() {
           <a href="#contacto" className="button button--outline">Hablar con Team <span>↗</span></a>
         </div>
         <div className="company-media">
-          <PhotoPlaceholder title="Equipo técnico o proyecto terminado" caption="Sustituir por una fotografía real de Team trabajando en campo." tone="warm" />
+          <SiteImage
+            src="/images/refrigeracion-comercial.png"
+            alt="Entrada a un cuarto frío comercial"
+            title="Cuartos fríos y conservación"
+            caption="Soluciones térmicas para conservar producto y sostener la operación."
+          />
           <div className="company-note"><span>01</span><p>Diagnóstico antes de<br />cambiar una pieza.</p></div>
         </div>
       </div>
@@ -215,7 +262,32 @@ function Footer() {
 }
 
 function App() {
-  return <><Header /><main><Hero /><TrustStrip /><Services /><Vrf /><Brands /><Company /><Contact /></main><Footer /><WhatsAppButton floating /></>;
+  const fieldRef = useRef<HTMLDivElement>(null);
+  useEffect(() => {
+    const field = fieldRef.current;
+    if (!field) return;
+
+    let frameRequested = false;
+    let mouseX = -500;
+    let mouseY = -500;
+    const updatePosition = () => {
+      field.style.setProperty("--field-x", `${mouseX}px`);
+      field.style.setProperty("--field-y", `${mouseY}px`);
+      frameRequested = false;
+    };
+    const onMouseMove = (event: MouseEvent) => {
+      mouseX = event.clientX;
+      mouseY = event.clientY;
+      if (!frameRequested) {
+        frameRequested = true;
+        window.requestAnimationFrame(updatePosition);
+      }
+    };
+    window.addEventListener("mousemove", onMouseMove, { passive: true });
+    return () => window.removeEventListener("mousemove", onMouseMove);
+  }, []);
+
+  return <><div ref={fieldRef} className="thermal-field" aria-hidden="true" /><Header /><main><Hero /><TrustStrip /><Services /><Vrf /><Brands /><Company /><Contact /></main><Footer /><WhatsAppButton floating /></>;
 }
 
 createRoot(document.getElementById("root")!).render(<App />);
