@@ -9,15 +9,14 @@ const WHATSAPP_MESSAGE = "Hola, deseo solicitar una cotización";
 function Mark({ compact = false }: { compact?: boolean }) {
   return (
     <div className={`brand-mark ${compact ? "brand-mark--compact" : ""}`} aria-label="Team Refrigeración">
-      <svg viewBox="0 0 86 70" aria-hidden="true">
-        <path className="mark-plum" d="M4 57 25 19l21 38H4Z" />
-        <path className="mark-gold" d="m25 19 18-15 24 53H46L25 19Z" />
-        <path className="mark-green" d="M43 4 65 0l17 57H67L43 4Z" />
-        <path className="mark-cut" d="M26 19h17l-8 15-9-15Z" />
+      <svg viewBox="0 0 61 32" aria-hidden="true">
+        <path className="mark-green" d="M3 28 17 4h10L13 28Z" />
+        <path className="mark-plum" d="M21 28 35 4h10L31 28Z" />
+        <path className="mark-gold" d="M39 28 53 4h10L49 28Z" />
       </svg>
       {!compact && (
         <span className="brand-name">
-          <strong>TEAM</strong>
+          <strong>Team</strong>
           <em>Refrigeración</em>
         </span>
       )}
