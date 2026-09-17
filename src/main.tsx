@@ -263,12 +263,31 @@ function Footer() {
 
 function App() {
   const fieldRef = useRef<HTMLDivElement>(null);
-  const updateField = (clientX: number, clientY: number) => {
-    fieldRef.current?.style.setProperty("--field-x", `${clientX}px`);
-    fieldRef.current?.style.setProperty("--field-y", `${clientY - 82}px`);
-  };
+  useEffect(() => {
+    const field = fieldRef.current;
+    if (!field) return;
 
-  return <><Header /><main onPointerMove={(event) => updateField(event.clientX, event.clientY)} onPointerLeave={() => updateField(-500, -500)}><div ref={fieldRef} className="thermal-field" aria-hidden="true" /><Hero /><TrustStrip /><Services /><Vrf /><Brands /><Company /><Contact /></main><Footer /><WhatsAppButton floating /></>;
+    let frameRequested = false;
+    let mouseX = -500;
+    let mouseY = -500;
+    const updatePosition = () => {
+      field.style.setProperty("--field-x", `${mouseX}px`);
+      field.style.setProperty("--field-y", `${mouseY}px`);
+      frameRequested = false;
+    };
+    const onMouseMove = (event: MouseEvent) => {
+      mouseX = event.clientX;
+      mouseY = event.clientY;
+      if (!frameRequested) {
+        frameRequested = true;
+        window.requestAnimationFrame(updatePosition);
+      }
+    };
+    window.addEventListener("mousemove", onMouseMove, { passive: true });
+    return () => window.removeEventListener("mousemove", onMouseMove);
+  }, []);
+
+  return <><div ref={fieldRef} className="thermal-field" aria-hidden="true" /><Header /><main><Hero /><TrustStrip /><Services /><Vrf /><Brands /><Company /><Contact /></main><Footer /><WhatsAppButton floating /></>;
 }
 
 createRoot(document.getElementById("root")!).render(<App />);
