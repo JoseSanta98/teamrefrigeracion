@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { createRoot } from "react-dom/client";
 import "./styles.css";
 
@@ -97,7 +97,16 @@ function Header() {
 
 function Hero() {
   const [activeSlide, setActiveSlide] = useState(0);
+  const [isCarouselPaused, setIsCarouselPaused] = useState(false);
   const slide = heroSlides[activeSlide];
+
+  useEffect(() => {
+    if (isCarouselPaused) return;
+    const interval = window.setInterval(() => {
+      setActiveSlide((current) => (current + 1) % heroSlides.length);
+    }, 6500);
+    return () => window.clearInterval(interval);
+  }, [isCarouselPaused]);
 
   return (
     <section id="inicio" className="hero shell">
@@ -112,8 +121,8 @@ function Hero() {
       </div>
       <div className="hero-media">
         <div className="hero-stamp"><span>Desde</span><strong>+15</strong><small>años</small></div>
-        <section className="hero-carousel" aria-label="Soluciones destacadas">
-          <img src={slide.image} alt={slide.alt} />
+        <section className="hero-carousel" aria-label="Soluciones destacadas" onMouseEnter={() => setIsCarouselPaused(true)} onMouseLeave={() => setIsCarouselPaused(false)} onFocus={() => setIsCarouselPaused(true)} onBlur={() => setIsCarouselPaused(false)}>
+          <img key={slide.image} src={slide.image} alt={slide.alt} />
           <div className="carousel-nav" aria-label="Elegir solución destacada">
             {heroSlides.map((item, index) => (
               <button key={item.title} className={index === activeSlide ? "is-active" : ""} onClick={() => setActiveSlide(index)} aria-label={"Ver " + item.title} aria-pressed={index === activeSlide} />
@@ -253,7 +262,13 @@ function Footer() {
 }
 
 function App() {
-  return <><Header /><main><Hero /><TrustStrip /><Services /><Vrf /><Brands /><Company /><Contact /></main><Footer /><WhatsAppButton floating /></>;
+  const fieldRef = useRef<HTMLDivElement>(null);
+  const updateField = (clientX: number, clientY: number) => {
+    fieldRef.current?.style.setProperty("--field-x", `${clientX}px`);
+    fieldRef.current?.style.setProperty("--field-y", `${clientY - 82}px`);
+  };
+
+  return <><Header /><main onPointerMove={(event) => updateField(event.clientX, event.clientY)} onPointerLeave={() => updateField(-500, -500)}><Hero /><TrustStrip /><Services /><Vrf /><Brands /><Company /><Contact /></main><div ref={fieldRef} className="thermal-field" aria-hidden="true" /><Footer /><WhatsAppButton floating /></>;
 }
 
 createRoot(document.getElementById("root")!).render(<App />);
