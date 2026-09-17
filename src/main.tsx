@@ -268,7 +268,7 @@ function App() {
     fieldRef.current?.style.setProperty("--field-y", `${clientY - 82}px`);
   };
 
-  return <><Header /><main onPointerMove={(event) => updateField(event.clientX, event.clientY)} onPointerLeave={() => updateField(-500, -500)}><Hero /><TrustStrip /><Services /><Vrf /><Brands /><Company /><Contact /></main><div ref={fieldRef} className="thermal-field" aria-hidden="true" /><Footer /><WhatsAppButton floating /></>;
+  return <><Header /><main onPointerMove={(event) => updateField(event.clientX, event.clientY)} onPointerLeave={() => updateField(-500, -500)}><div ref={fieldRef} className="thermal-field" aria-hidden="true" /><Hero /><TrustStrip /><Services /><Vrf /><Brands /><Company /><Contact /></main><Footer /><WhatsAppButton floating /></>;
 }
 
 createRoot(document.getElementById("root")!).render(<App />);
