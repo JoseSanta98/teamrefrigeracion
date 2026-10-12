@@ -9,8 +9,9 @@ Sitio corporativo de una sola página para Team Refrigeración (Chihuahua, desde
 - `public/images/obra`: fotos de trabajos (carrusel de la portada y reproductor de historias).
 - `public/images/servicios`: fondos de las 18 tarjetas de servicios (solo se cargan en escritorio).
 - `public/images/equipo`: retratos de la dirección.
+- `public/images/marca` y `public/images/marcas`: logotipo (triángulos) y logos de las marcas certificadas.
 - `public/images/certificaciones`: capacitación 1999–2017, recortada del collage del sitio anterior.
-- `public/favicon.svg`, `public/_headers`: icono y cabeceras de seguridad.
+- `public/favicon.png`, `public/_headers`: icono y cabeceras de seguridad.
 
 ## Desarrollo local
 

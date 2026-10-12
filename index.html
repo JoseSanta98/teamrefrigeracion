@@ -6,7 +6,7 @@
 <title>Team Refrigeración | Chihuahua</title>
 <meta name="description" content="Climatización, refrigeración industrial, VRF y mantenimiento HVAC en Chihuahua desde 1998.">
 <meta name="theme-color" content="#0F172A">
-<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="icon" href="/favicon.png" type="image/png" sizes="64x64">
 <link rel="canonical" href="https://teamrefrigeracion.com/">
 <meta property="og:type" content="website">
 <meta property="og:locale" content="es_MX">
@@ -43,6 +43,7 @@ header{position:sticky;top:0;z-index:50;background:rgba(255,255,255,.92);backdro
 header .wrap{display:flex;align-items:center;height:60px;gap:24px}
 .logo{display:flex;align-items:center;gap:10px;font-weight:800;font-size:20px;letter-spacing:-.02em;white-space:nowrap}
 .logo span{font-weight:400;color:var(--mute)}
+.logo .mark{height:40px;width:auto;display:block}
 nav{display:flex;gap:2px;flex:1;justify-content:center}
 nav a{font-size:13px;font-weight:600;color:var(--ink2);padding:7px 12px;border-radius:8px;transition:.15s}
 nav a:hover,nav a.on{background:#F1F5F9;color:var(--ink)}
@@ -152,8 +153,26 @@ td.n{color:#CBD5E1}
 .vrf .flow{display:flex;gap:6px;align-items:center;flex-wrap:wrap;margin-top:10px}
 .vrf .flow span{background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.14);border-radius:7px;padding:5px 8px;font-size:11.5px;color:#fff}
 .vrf .flow em{color:var(--y);font-style:normal}
-.fit{display:grid;grid-template-columns:repeat(5,1fr);gap:6px;margin-top:10px}
-.fit div{text-align:center;font-size:11.5px;background:rgba(255,255,255,.06);border-radius:7px;padding:8px 4px;color:#fff}
+/* ¿Conviene en su edificio? (maqueta-vrf-edificio.html, aprobada 12/10/2026) */
+.vrf .box.fitbox{display:flex;flex-direction:column}
+.fit{display:flex;gap:6px;flex-wrap:wrap;margin-top:12px}
+.fit button{font:inherit;font-size:12px;font-weight:600;color:#fff;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.14);border-radius:8px;padding:7px 12px;cursor:pointer;transition:.15s}
+.fit button:hover{border-color:rgba(255,255,255,.4)}
+.fit button.on{background:#fff;color:var(--ink);border-color:#fff}
+.edif{margin-top:14px;background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.08);border-radius:10px;padding:10px}
+.edif svg{display:block;width:100%;height:auto}
+.edif .zona rect.cuarto{transition:fill .35s}
+.edif text{font-family:Inter,system-ui,sans-serif}
+.leyenda{display:flex;justify-content:space-between;align-items:center;gap:8px;margin-top:8px;font-size:11px;color:#94A3B8}
+.leyenda .barra{flex:1;height:5px;border-radius:3px;background:linear-gradient(90deg,#38BDF8,#22B87E,#F5A01A)}
+.pasos{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin:14px 0}
+.paso{background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.1);border-radius:9px;padding:9px 10px}
+.paso b{display:inline-grid;place-items:center;width:20px;height:20px;border-radius:50%;background:var(--y);color:var(--ink);font-size:11px;margin-bottom:4px}
+.paso div{color:#fff;font-weight:600;font-size:12.5px;line-height:1.3}
+.paso small{display:block;color:#94A3B8;font-size:11px;margin-top:2px}
+.fitbox .btn{margin-top:auto;align-self:flex-start}
+@media (max-width:860px){.pasos{grid-template-columns:1fr}}
+@media (prefers-reduced-motion:reduce){.edif .zona rect.cuarto{transition:none}}
 
 /* empresa */
 .egrid{display:grid;grid-template-columns:1fr 1fr;gap:24px}
@@ -167,6 +186,10 @@ td.n{color:#CBD5E1}
 .quote footer b{color:var(--ink)}
 .logos{display:flex;flex-wrap:wrap;gap:6px}
 .logos span{font-size:12px;font-weight:700;padding:6px 10px;border-radius:8px;background:#fff;border:1px solid var(--line);color:var(--ink2)}
+.brands{list-style:none;display:grid;grid-template-columns:repeat(6,1fr);gap:20px 8px;align-items:center;justify-items:center;padding:10px 0 4px}
+.brands li{grid-column:span 2;display:flex;align-items:center;justify-content:center;width:100%}
+.brands li:nth-child(n+4){grid-column:span 3}
+.brands img{width:auto;height:var(--h);max-width:92%;object-fit:contain;display:block}
 .mini{font-size:11px;font-weight:800;letter-spacing:.08em;text-transform:uppercase;color:var(--mute);margin:14px 0 8px}
 .vals{display:grid;grid-template-columns:1fr 1fr;gap:6px}
 .vals div{font-size:12.5px;background:#fff;border:1px solid var(--line);border-radius:8px;padding:8px 10px}
@@ -201,7 +224,6 @@ footer.site .logo span{color:#94A3B8}
 @media (max-width:560px){
   .grid3,.igrid,.cgrid,.vals{grid-template-columns:1fr}
   .stats{grid-template-columns:1fr 1fr}
-  .fit{grid-template-columns:repeat(3,1fr)}
   .top .l{display:none}
 }
 
@@ -238,7 +260,6 @@ h1{font-size:52px;line-height:1.05;margin:16px 0 14px}
 .ph.dark{color:#E2E8F0;border-color:rgba(255,255,255,.25)}
 .ph.sm{aspect-ratio:16/10;margin-bottom:12px}
 .ph.map{aspect-ratio:2/1;margin-top:10px}
-.ph.logo-ph{aspect-ratio:auto;padding:10px;margin-top:8px}
 /* contacto v2 */
 .ctwo{display:grid;grid-template-columns:1fr 1.15fr;gap:16px;align-items:start}
 .cgrid{grid-template-columns:1fr 1fr}
@@ -341,6 +362,49 @@ h1{font-size:52px;line-height:1.05;margin:16px 0 14px}
 .cx{position:absolute;top:10px;right:12px;z-index:2;width:34px;height:34px;border-radius:50%;border:0;background:rgba(15,23,42,.08);font-size:20px;cursor:pointer}
 @media (max-width:1000px){.cnav{display:none}.ctrack{grid-auto-columns:200px}}
 @media (max-width:700px){.cdlg figure{grid-template-columns:1fr}.cdoc{min-height:0;padding:16px}.cdoc img{max-height:50vh}}
+
+/* VIDRIO (solo escritorio, donde existe la luz del puntero): las tarjetas blancas se vuelven semitransparentes
+   con un leve desenfoque; la luz se ve tenue detrás y no cruza el texto. Un solo valor controla todo: --glass */
+@media (min-width:1001px){
+  :root{--glass:rgba(255,255,255,.38)}
+  .egrid>div,.testi .tcard,.creds,.tri,.stats,.trust,table,.signs,.icard,.cc:not(.wa){
+    background:var(--glass);-webkit-backdrop-filter:blur(5px) saturate(1.5);backdrop-filter:blur(5px) saturate(1.5)}
+  .egrid>div,.testi .tcard,.creds{border:1px solid rgba(255,255,255,.75);box-shadow:0 1px 2px rgba(15,23,42,.05),0 18px 40px -26px rgba(15,23,42,.35)}
+  .egrid>div,.creds{border-radius:18px;padding:22px 24px}
+  .egrid>div>.mini:first-child{margin-top:0}
+  th{background:rgba(248,250,252,.35)}
+  .trust{gap:0;padding:0;border:1px solid var(--line);border-radius:12px;overflow:hidden}
+  .trust>div{padding:14px 16px}
+  .trust>div+div{border-left:1px solid var(--line)}
+  .cyear{box-shadow:none} /* el halo del color de fondo se vería sobre el vidrio */
+  .vals div{background:rgba(255,255,255,.5)}
+  .sec.white{background:rgba(255,255,255,.3)} /* si fuera más opaco apagaría la luz antes de llegar al vidrio */
+}
+
+/* mapa incrustado: cartel con botón; el iframe de Google solo se carga al tocarlo */
+.mapbox{margin-top:10px;border:1px solid var(--line);border-radius:14px;overflow:hidden;background:#fff}
+.mapview{position:relative;aspect-ratio:2/1;background:#EEF2F8;overflow:hidden}
+.mapsvg{position:absolute;inset:0;width:100%;height:100%;display:block}
+.mappin{position:absolute;left:50%;top:44%;transform:translate(-50%,-80%);filter:drop-shadow(0 6px 8px rgba(15,23,42,.3))}
+.mappin img{display:block;height:50px;width:auto}
+.mappin:after{content:"";position:absolute;left:50%;bottom:-6px;width:34px;height:10px;margin-left:-17px;border-radius:50%;background:rgba(15,23,42,.18);filter:blur(2px);z-index:-1}
+.mapcta{position:absolute;left:50%;bottom:30px;transform:translateX(-50%)}
+.mapnote{position:absolute;left:0;right:0;bottom:9px;text-align:center;font-size:11px;color:var(--mute)}
+.mapframe{position:absolute;inset:0;width:100%;height:100%;border:0}
+.mapcap{display:flex;justify-content:space-between;align-items:center;gap:12px;padding:12px 14px;border-top:1px solid var(--line)}
+.mapcap b{display:block;font-size:14px}.mapcap small{font-size:12px;color:var(--mute)}
+@media (max-width:560px){.mapview{aspect-ratio:16/11}.mapcap{flex-direction:column;align-items:stretch;text-align:center}}
+@media (min-width:1001px){.mapbox{background:var(--glass);-webkit-backdrop-filter:blur(5px) saturate(1.5);backdrop-filter:blur(5px) saturate(1.5)}}
+
+/* contacto: las dos columnas miden lo mismo; la tarjeta de reseñas ocupa el espacio que sobraba bajo el formulario */
+.ctwo{align-items:stretch}
+.ccol{display:flex;flex-direction:column;gap:16px;min-width:0}
+.ccol .reviews{flex:1;display:flex;flex-direction:column;justify-content:center}
+.rv-score{display:flex;align-items:center;gap:12px;margin:6px 0 2px}
+.rv-score b{font-size:46px;font-weight:900;line-height:1;letter-spacing:-.03em}
+.stars{font-size:26px;letter-spacing:3px;line-height:1;background:linear-gradient(90deg,#F5A01A 92%,#CBD5E1 92%);-webkit-background-clip:text;background-clip:text;color:transparent}
+.reviews .out{margin-top:14px}
+.reviews .out .btn{flex:1;justify-content:center}
 </style>
 </head>
 <body>
@@ -358,11 +422,7 @@ h1{font-size:52px;line-height:1.05;margin:16px 0 14px}
 
 <header><div class="wrap">
   <a href="#top" class="logo" aria-label="Team Refrigeración">
-    <svg width="34" height="34" viewBox="0 0 40 44" aria-hidden="true">
-      <polygon points="4,11 15,11 11,19 0,19" fill="#22B87E"/>
-      <polygon points="24,5 35,5 25,24 14,24" fill="#8B5CF6"/>
-      <polygon points="18,27 29,27 22,40 11,40" fill="#F5A01A"/>
-    </svg>
+    <img class="mark" src="/images/marca/logo-triangulos.png" alt="" width="32" height="40">
     Team <span>Refrigeración</span>
   </a>
   <nav id="nav">
@@ -397,7 +457,7 @@ h1{font-size:52px;line-height:1.05;margin:16px 0 14px}
 
     <!-- Carrusel: crossfade 5 s, pausa al pasar el cursor -->
     <div class="car" id="car">
-      <div class="seal"><svg width="30" height="33" viewBox="0 0 40 44"><polygon points="4,11 15,11 11,19 0,19" fill="#22B87E"/><polygon points="24,5 35,5 25,24 14,24" fill="#8B5CF6"/><polygon points="18,27 29,27 22,40 11,40" fill="#F5A01A"/></svg><b>1998</b></div>
+      <div class="seal"><img src="/images/marca/logo-triangulos.png" alt="Team Refrigeración" width="31" height="38" style="height:38px;width:auto;display:block"><b>1998</b></div>
       <div class="slide on" data-cap="AHR Expo México · Monterrey 2025" data-sub="Actualización constante en HVACR">
         <img src="/images/obra/expo-ahr-2025.jpg" alt="Equipo de Team Refrigeración en AHR Expo México 2025" style="object-position:5% 50%" fetchpriority="high"></div>
       <div class="slide" data-cap="Chillers y refrigeración industrial" data-sub="Servicio el mismo día · 365 días">
@@ -539,11 +599,42 @@ h1{font-size:52px;line-height:1.05;margin:16px 0 14px}
         <div class="flow"><span>Unidad exterior</span><em>→</em><span>Tubería de refrigerante</span><em>→</em><span>Unidades interiores por zona</span></div>
         <div class="flow" style="margin-top:12px"><span>Hasta 30% menos energía</span><span>Modular</span><span>Silencioso</span><span>Control por cuarto</span></div>
       </div>
-      <div class="box">
+      <div class="box fitbox" id="vrf-edificio">
         <h4>¿Conviene en su edificio?</h4>
         Recomendado para edificios medianos y grandes. Evaluamos si la tecnología es conveniente para su proyecto antes de cotizar.
-        <div class="fit"><div>Oficinas</div><div>Hoteles</div><div>Plazas</div><div>Hospitales</div><div>Casas grandes</div></div>
-        <a class="btn wa" style="margin-top:14px" href="https://wa.me/526141420285?text=Hola%2C%20quiero%20evaluar%20un%20proyecto%20VRF" target="_blank" rel="noopener">Solicitar evaluación VRF</a>
+        <div class="fit" id="tipos">
+          <button class="on" data-tipo="oficinas">Oficinas</button><button data-tipo="hoteles">Hoteles</button><button data-tipo="plazas">Plazas</button><button data-tipo="hospitales">Hospitales</button><button data-tipo="casas">Casas grandes</button>
+        </div>
+
+        <div class="edif" aria-label="Edificio en corte: cada cuarto con su propia temperatura, una sola unidad exterior">
+          <svg viewBox="0 0 440 230" role="img">
+            <!-- unidad exterior en azotea -->
+            <g transform="translate(330,6)">
+              <rect width="78" height="34" rx="4" fill="#E2E8F0"/>
+              <circle cx="22" cy="17" r="11" fill="none" stroke="#64748B" stroke-width="2"/>
+              <circle cx="56" cy="17" r="11" fill="none" stroke="#64748B" stroke-width="2"/>
+              <path d="M22 9v16M14 17h16M56 9v16M48 17h16" stroke="#94A3B8" stroke-width="1.5"/>
+            </g>
+            <text class="etq" x="369" y="52" fill="#94A3B8" font-size="9" text-anchor="middle">Unidad exterior</text>
+            <!-- edificio -->
+            <rect x="12" y="44" width="300" height="180" rx="6" fill="none" stroke="rgba(255,255,255,.25)" stroke-width="1.5"/>
+            <line x1="12" y1="104" x2="312" y2="104" stroke="rgba(255,255,255,.18)"/>
+            <line x1="12" y1="164" x2="312" y2="164" stroke="rgba(255,255,255,.18)"/>
+            <line x1="162" y1="44" x2="162" y2="224" stroke="rgba(255,255,255,.12)"/>
+            <!-- tubería: de la unidad exterior baja por la derecha y entra a cada piso -->
+            <path d="M369 40 V74 M312 74 H369 M369 74 V194 M312 134 H369 M312 194 H369" stroke="#F5A01A" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+            <g id="zonas"></g>
+          </svg>
+          <div class="leyenda"><span>18°</span><div class="barra"></div><span>26°</span><span style="margin-left:8px;color:#F5A01A">━ tubería de refrigerante</span></div>
+        </div>
+
+        <div class="pasos">
+          <div class="paso"><b>1</b><div>Evaluamos su edificio</div><small>Cargas térmicas y uso</small></div>
+          <div class="paso"><b>2</b><div>Diseñamos el sistema</div><small>Zonas y equipos</small></div>
+          <div class="paso"><b>3</b><div>Instalamos y damos mantenimiento</div><small>Puesta en marcha</small></div>
+        </div>
+        <a class="btn wa" href="https://wa.me/526141420285?text=Hola%2C%20quiero%20evaluar%20un%20proyecto%20VRF" target="_blank" rel="noopener">Solicitar evaluación VRF</a>
+      
       </div>
     </div>
   </div>
@@ -581,10 +672,9 @@ h1{font-size:52px;line-height:1.05;margin:16px 0 14px}
       </div>
       <div>
         <div class="mini">Certificados en servicio y garantías</div>
-        <div class="logos"><span>York</span><span>Carrier</span><span>Rittal</span><span>Trane</span><span>Daikin</span></div>
+        <ul class="brands" aria-label="Marcas certificadas en servicio y garantías"><li><img src="/images/marcas/york.png" alt="York" width="308" height="74" style="--h:30px" loading="lazy"></li><li><img src="/images/marcas/trane.png" alt="Trane" width="305" height="104" style="--h:42px" loading="lazy"></li><li><img src="/images/marcas/carrier.png" alt="Carrier" width="283" height="116" style="--h:46px" loading="lazy"></li><li><img src="/images/marcas/rittal.png" alt="Rittal" width="132" height="185" style="--h:62px" loading="lazy"></li><li><img src="/images/marcas/daikin.svg" alt="Daikin" width="300" height="65" style="--h:26px" loading="lazy"></li></ul>
         <div class="mini">Clientes</div>
         <div class="logos"><span>Lutron</span><span>Labinal Safran</span><span>Fokker</span><span>Cessna</span><span>Atlas Aerospace</span><span>Bourns</span><span>Key Plastics</span><span>Vitromex</span><span>Grupo Modelo</span><span>Quality Inn</span><span>Tec de Monterrey</span><span>Gob. del Estado</span></div>
-        
       </div>
     </div>
     <div class="creds">
@@ -651,7 +741,8 @@ h1{font-size:52px;line-height:1.05;margin:16px 0 14px}
     </div>
     <div class="ctwo">
     <!-- Solicitud rápida: arma un mensaje de WhatsApp -->
-    <div class="tri">
+    <div class="ccol">
+      <div class="tri">
       <h3>Solicitud rápida</h3>
       <p class="s">Elija lo que aplica y le enviamos el caso por WhatsApp ya armado.</p>
       <label class="q">Tipo de espacio</label>
@@ -670,6 +761,14 @@ h1{font-size:52px;line-height:1.05;margin:16px 0 14px}
       </div>
       <p class="hint" id="preview">Mensaje: —</p>
     </div>
+      <div class="tri reviews">
+        <h3>Lo que dicen en Google</h3>
+        <div class="rv-score"><b>4.6</b><span class="stars" role="img" aria-label="4.6 de 5 estrellas">★★★★★</span></div>
+        <p class="s">12 reseñas de nuestros clientes en Google Maps.</p>
+        <div class="out"><a class="btn dk" href="https://www.google.com/maps?cid=5394335064336793142" target="_blank" rel="noopener">Ver reseñas y dejar la tuya ↗</a></div>
+        <p class="hint">Dato de Google Maps al 12 de octubre de 2026.</p>
+      </div>
+      </div>
       <div>
         <div class="cgrid">
           <a class="cc" href="tel:+526143130551"><small>Teléfono</small><b>614 313 0551</b><p>Atención principal ↗</p></a>
@@ -677,7 +776,10 @@ h1{font-size:52px;line-height:1.05;margin:16px 0 14px}
           <a class="cc" href="mailto:teamrefrigeracion@yahoo.com.mx?subject=Cotizaci%C3%B3n"><small>Correo</small><b class="em">teamrefrigeracion<br>@yahoo.com.mx</b><p>Consultas y cotizaciones ↗</p></a>
           <a class="cc" href="https://www.google.com/maps/search/?api=1&amp;query=San+Luis+Potos%C3%AD+2718+Av%C3%ADcola+II+Chihuahua" target="_blank" rel="noopener"><small>Ubicación</small><b>San Luis Potosí 2718</b><p>Avícola II, Chihuahua ↗</p></a>
         </div>
-        
+        <div class="mapbox" id="mapbox">
+          <div class="mapview" id="mapview"><svg class="mapsvg" viewBox="0 0 400 200" preserveAspectRatio="xMidYMid slice" aria-hidden="true"><rect width="400" height="200" fill="#FFFFFF"/><rect x="5" y="5" width="52" height="38" rx="4" fill="#EEF2F8"/><rect x="67" y="5" width="59" height="38" rx="4" fill="#EEF2F8"/><rect x="136" y="5" width="49" height="38" rx="4" fill="#EEF2F8"/><rect x="195" y="5" width="62" height="38" rx="4" fill="#EEF2F8"/><rect x="267" y="5" width="46" height="38" rx="4" fill="#EEF2F8"/><rect x="323" y="5" width="72" height="38" rx="4" fill="#EEF2F8"/><rect x="5" y="53" width="52" height="43" rx="4" fill="#EEF2F8"/><rect x="67" y="53" width="59" height="43" rx="4" fill="#EEF2F8"/><rect x="136" y="53" width="49" height="43" rx="4" fill="#EEF2F8"/><rect x="195" y="53" width="62" height="43" rx="4" fill="#EEF2F8"/><rect x="267" y="53" width="46" height="43" rx="4" fill="#EEF2F8"/><rect x="323" y="53" width="72" height="43" rx="4" fill="#EEF2F8"/><rect x="5" y="106" width="52" height="39" rx="4" fill="#EEF2F8"/><rect x="67" y="106" width="59" height="39" rx="4" fill="#DCEFE1"/><rect x="136" y="106" width="49" height="39" rx="4" fill="#EEF2F8"/><rect x="195" y="106" width="62" height="39" rx="4" fill="#EEF2F8"/><rect x="267" y="106" width="46" height="39" rx="4" fill="#EEF2F8"/><rect x="323" y="106" width="72" height="39" rx="4" fill="#EEF2F8"/><rect x="5" y="155" width="52" height="40" rx="4" fill="#EEF2F8"/><rect x="67" y="155" width="59" height="40" rx="4" fill="#EEF2F8"/><rect x="136" y="155" width="49" height="40" rx="4" fill="#EEF2F8"/><rect x="195" y="155" width="62" height="40" rx="4" fill="#EEF2F8"/><rect x="267" y="155" width="46" height="40" rx="4" fill="#EEF2F8"/><rect x="323" y="155" width="72" height="40" rx="4" fill="#EEF2F8"/><path d="M-10 168 C 90 150, 150 190, 260 160 S 380 120, 420 128" fill="none" stroke="#D3E6F6" stroke-width="12" stroke-linecap="round"/><path d="M-10 40 L 410 150" stroke="#FFFFFF" stroke-width="9"/><path d="M-10 40 L 410 150" stroke="#E3E9F2" stroke-width="1" stroke-dasharray="6 6"/></svg><span class="mappin"><img src="/images/marca/logo-triangulos.png" alt="" width="40" height="50"></span><button type="button" class="btn dk mapcta" id="mapLoad">Ver mapa interactivo</button><small class="mapnote">Se carga desde Google Maps</small></div>
+          <div class="mapcap"><div><b>San Luis Potosí 2718</b><small>Col. Avícola II, Chihuahua</small></div><a class="btn ghost" href="https://www.google.com/maps/search/?api=1&amp;query=San+Luis+Potos%C3%AD+2718+Av%C3%ADcola+II+Chihuahua" target="_blank" rel="noopener">Cómo llegar ↗</a></div>
+        </div>
       </div>
     </div>
   </div>
@@ -685,7 +787,7 @@ h1{font-size:52px;line-height:1.05;margin:16px 0 14px}
 </main>
 
 <footer class="site"><div class="wrap">
-  <div class="logo"><svg width="22" height="24" viewBox="0 0 40 44" aria-hidden="true"><polygon points="4,11 15,11 11,19 0,19" fill="#22B87E"/><polygon points="24,5 35,5 25,24 14,24" fill="#8B5CF6"/><polygon points="18,27 29,27 22,40 11,40" fill="#F5A01A"/></svg>Team <span>Refrigeración</span></div>
+  <div class="logo"><img class="mark" src="/images/marca/logo-triangulos.png" alt="" width="23" height="28" style="height:28px">Team <span>Refrigeración</span></div>
   <div>Chihuahua, Chih., México · <a href="https://www.facebook.com/teamrefrigeracion" target="_blank" rel="noopener">Facebook</a> · Las marcas son propiedad de sus respectivos dueños.</div>
 </div></footer>
 
@@ -747,7 +849,7 @@ const STORIES=[
   {img:'/images/obra/obra-cassette.jpg',t:'Instalación de cassette en plafón',tag:'Comercial'},
   {img:'/images/obra/obra-paquete-tecnicos.jpg',t:'Instalación de unidad paquete',tag:'Industrial'}];
 const DUR=5000;
-const LOGO='<svg width="18" height="20" viewBox="0 0 40 44"><polygon points="4,11 15,11 11,19 0,19" fill="#22B87E"/><polygon points="24,5 35,5 25,24 14,24" fill="#8B5CF6"/><polygon points="18,27 29,27 22,40 11,40" fill="#F5A01A"/></svg>';
+const LOGO='<img src="/images/marca/logo-triangulos.png" alt="" width="16" height="20" style="height:20px;width:auto;display:block">';
 function makePlayer(el,onChange){
   el.innerHTML='<div class="pbars">'+STORIES.map(()=>'<span><i></i></span>').join('')+'</div>'+
     STORIES.map((s,k)=>`<img class="pimg" src="${s.img}" alt="${s.t}" loading="${k?'lazy':'eager'}">`).join('')+
@@ -793,6 +895,66 @@ cdlg.querySelector('.cx').onclick=()=>cdlg.close();
 cdlg.querySelector('.cdp').onclick=()=>openCred(cdi-1);cdlg.querySelector('.cdn').onclick=()=>openCred(cdi+1);
 cdlg.addEventListener('click',e=>{if(e.target===cdlg)cdlg.close()});
 cdlg.addEventListener('keydown',e=>{if(e.key==='ArrowLeft')openCred(cdi-1);if(e.key==='ArrowRight')openCred(cdi+1)});
+
+// mapa: se conecta con Google solo cuando la persona lo pide
+document.getElementById('mapLoad').onclick=()=>{
+  const v=document.getElementById('mapview');v.textContent='';
+  const f=document.createElement('iframe');f.className='mapframe';
+  f.src="https://www.google.com/maps?q=San+Luis+Potos%C3%AD+2718,+Av%C3%ADcola+II,+Chihuahua,+Chih.,+M%C3%A9xico&hl=es&z=17&output=embed";
+  f.title='Mapa de ubicación: San Luis Potosí 2718, Avícola II, Chihuahua';
+  f.loading='lazy';f.referrerPolicy='no-referrer-when-downgrade';f.allowFullscreen=true;v.appendChild(f)};
+// ¿Conviene en su edificio? (maqueta-vrf-edificio.html)
+(() => {
+// Cuartos por tipo de edificio: [nombre, temperatura]. Temperaturas ilustrativas.
+const TIPOS = {
+  oficinas:   [["Sala de juntas",21],["Oficinas",23],["Gerencia",22],["Comedor",24],["Recepción",24],["Site",18]],
+  hoteles:    [["Habitación 301",21],["Habitación 302",25],["Habitación 201",23],["Habitación 202",20],["Lobby",24],["Restaurante",22]],
+  plazas:     [["Cine",21],["Comida",22],["Tienda A",23],["Tienda B",24],["Pasillo",25],["Bodega",26]],
+  hospitales: [["Quirófano",18],["Recuperación",22],["Consultorio",23],["Laboratorio",20],["Espera",24],["Farmacia",21]],
+  casas:      [["Recámara 1",21],["Recámara 2",23],["Estudio",22],["Cuarto TV",24],["Sala",24],["Cocina",25]]
+};
+const color = t => { // 18° azul → 22° verde → 26° ámbar
+  const f = Math.max(0, Math.min(1, (t - 18) / 8));
+  const mix = (a, b, x) => a.map((v, i) => Math.round(v + (b[i] - v) * x));
+  const c = f < .5 ? mix([56,189,248],[34,184,126],f*2) : mix([34,184,126],[245,160,26],(f-.5)*2);
+  return `rgba(${c.join(",")},.28)`;
+};
+const ns = "http://www.w3.org/2000/svg";
+const zonas = document.getElementById("zonas");
+// Pantallas angostas: el dibujo se encoge (~68%), así que los textos crecen y la temperatura sube a la
+// esquina superior derecha del cuarto para que no choque con nombres largos («Habitación 301»).
+const angosto = matchMedia("(max-width:560px)");
+let actual = "oficinas";
+function pintar(tipo){
+  actual = tipo;
+  const chico = angosto.matches;
+  zonas.textContent = "";
+  TIPOS[tipo].forEach(([nombre, t], i) => {
+    const x = 18 + (i % 2) * 150, y = 50 + Math.floor(i / 2) * 60;
+    const g = document.createElementNS(ns, "g"); g.setAttribute("class", "zona");
+    g.innerHTML =
+      `<rect class="cuarto" x="${x}" y="${y}" width="138" height="48" rx="4" fill="${color(t)}"/>` +
+      `<rect x="${x + 44}" y="${y + 4}" width="50" height="7" rx="2" fill="#E2E8F0"/>` +        // unidad interior
+      `<path d="M${x + 52} ${y + 14} q4 4 0 8 M${x + 69} ${y + 14} q4 4 0 8 M${x + 86} ${y + 14} q4 4 0 8" stroke="rgba(255,255,255,.45)" fill="none"/>` +
+      (chico
+        ? `<text x="${x + 7}" y="${y + 42}" fill="#E2E8F0" font-size="15">${nombre}</text>` +
+          `<text x="${x + 133}" y="${y + 24}" fill="#fff" font-size="16" font-weight="700" text-anchor="end">${t}°</text>`
+        : `<text x="${x + 8}" y="${y + 40}" fill="#E2E8F0" font-size="10">${nombre}</text>` +
+          `<text x="${x + 130}" y="${y + 40}" fill="#fff" font-size="13" font-weight="700" text-anchor="end">${t}°</text>`);
+    zonas.appendChild(g);
+  });
+  // «Unidad exterior»: en celular, a la izquierda de la unidad (abajo la cruza la tubería).
+  const etq = document.querySelector(".edif .etq");
+  [["font-size", chico ? "13" : "9"], ["x", chico ? "322" : "369"], ["y", chico ? "28" : "52"],
+   ["text-anchor", chico ? "end" : "middle"]].forEach(([a, v]) => etq.setAttribute(a, v));
+}
+angosto.addEventListener("change", () => pintar(actual));
+document.querySelectorAll("#tipos button").forEach(b => {
+  const elegir = () => { document.querySelectorAll("#tipos button").forEach(x => x.classList.toggle("on", x === b)); pintar(b.dataset.tipo); };
+  b.addEventListener("mouseenter", elegir); b.addEventListener("click", elegir); b.addEventListener("focus", elegir);
+});
+pintar("oficinas");
+})();
 </script>
 </body>
 </html>
