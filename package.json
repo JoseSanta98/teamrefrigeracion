@@ -5,8 +5,7 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "tsc -b && vite build",
-    "check": "tsc --noEmit"
+    "build": "vite build"
   },
   "dependencies": {
     "@vitejs/plugin-react": "^5.0.2",

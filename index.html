@@ -1,14 +1,798 @@
 <!doctype html>
 <html lang="es-MX">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="description" content="Refrigeración, climatización y mantenimiento técnico en Chihuahua." />
-    <meta name="theme-color" content="#142c3a" />
-    <title>Team Refrigeración | Chihuahua</title>
-  </head>
-  <body>
-    <div id="root"></div>
-    <script type="module" src="/src/main.tsx"></script>
-  </body>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Team Refrigeración | Chihuahua</title>
+<meta name="description" content="Climatización, refrigeración industrial, VRF y mantenimiento HVAC en Chihuahua desde 1998.">
+<meta name="theme-color" content="#0F172A">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="canonical" href="https://teamrefrigeracion.com/">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="es_MX">
+<meta property="og:site_name" content="Team Refrigeración">
+<meta property="og:title" content="Team Refrigeración | Chihuahua">
+<meta property="og:description" content="Climatización, refrigeración industrial, VRF y mantenimiento HVAC en Chihuahua desde 1998.">
+<meta property="og:url" content="https://teamrefrigeracion.com/">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+:root{
+  --g:#22B87E; --p:#8B5CF6; --y:#F5A01A;
+  --ink:#0F172A; --ink2:#334155; --mute:#64748B; --line:#E2E8F0;
+  --bg:#F8FAFC; --card:#FFFFFF; --dark:#0F172A; --dark2:#1E293B;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:Inter,system-ui,sans-serif;color:var(--ink);background:var(--bg);font-size:15px;line-height:1.5}
+a{color:inherit;text-decoration:none}
+.wrap{max-width:1200px;margin:0 auto;padding:0 16px}
+section{scroll-margin-top:72px}
+
+
+/* top bar */
+.top{background:var(--dark);color:#CBD5E1;font-size:12px}
+.top .wrap{display:flex;gap:18px;align-items:center;justify-content:space-between;height:32px;overflow:hidden}
+.top b{color:#fff;font-weight:600}
+.top .r{display:flex;gap:18px}
+.dot{display:inline-block;width:7px;height:7px;border-radius:50%;background:var(--g);margin-right:6px;box-shadow:0 0 0 3px rgba(34,184,126,.25);animation:pulse 2s infinite}
+@keyframes pulse{50%{box-shadow:0 0 0 6px rgba(34,184,126,0)}}
+
+/* header */
+header{position:sticky;top:0;z-index:50;background:rgba(255,255,255,.92);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
+header .wrap{display:flex;align-items:center;height:60px;gap:24px}
+.logo{display:flex;align-items:center;gap:10px;font-weight:800;font-size:20px;letter-spacing:-.02em;white-space:nowrap}
+.logo span{font-weight:400;color:var(--mute)}
+nav{display:flex;gap:2px;flex:1;justify-content:center}
+nav a{font-size:13px;font-weight:600;color:var(--ink2);padding:7px 12px;border-radius:8px;transition:.15s}
+nav a:hover,nav a.on{background:#F1F5F9;color:var(--ink)}
+nav a.on{box-shadow:inset 0 -2px 0 var(--p)}
+.btn{display:inline-flex;align-items:center;gap:8px;font-weight:700;font-size:13px;padding:9px 14px;border-radius:9px;transition:.15s;border:0;cursor:pointer;font-family:inherit}
+.btn.wa{background:var(--g);color:#fff}.btn.wa:hover{filter:brightness(.92)}
+.btn.ghost{background:#fff;border:1px solid var(--line);color:var(--ink)}.btn.ghost:hover{border-color:var(--ink2)}
+.btn.dk{background:var(--ink);color:#fff}
+.burger{display:none;background:none;border:1px solid var(--line);border-radius:8px;padding:6px 9px;font-size:18px;cursor:pointer}
+
+/* hero */
+.hero{background:linear-gradient(180deg,rgba(255,255,255,.75),rgba(248,250,252,0));border-bottom:1px solid var(--line)}
+.hero .wrap:first-child{display:grid;grid-template-columns:1.25fr 1fr;gap:32px;padding-top:36px;padding-bottom:28px}
+.eyebrow{font-size:11px;font-weight:800;letter-spacing:.12em;text-transform:uppercase;color:var(--p)}
+h1{font-size:40px;line-height:1.1;letter-spacing:-.03em;font-weight:900;margin:10px 0 12px}
+h1 em{font-style:normal;background:linear-gradient(90deg,var(--g),var(--p));-webkit-background-clip:text;background-clip:text;color:transparent}
+.lead{color:var(--ink2);font-size:16px;max-width:560px}
+.hero .ctas{display:flex;gap:10px;margin:18px 0 22px;flex-wrap:wrap}
+.chips{display:flex;flex-wrap:wrap;gap:6px}
+.chip{font-size:12px;font-weight:600;padding:5px 10px;border-radius:999px;background:#fff;border:1px solid var(--line);color:var(--ink2)}
+.chip i{display:inline-block;width:8px;height:8px;border-radius:2px;margin-right:6px;transform:skewX(-20deg)}
+
+/* triage card */
+.tri{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:18px;box-shadow:0 10px 30px -12px rgba(15,23,42,.18)}
+.tri h3{font-size:15px;font-weight:800;margin-bottom:2px}
+.tri p.s{font-size:12px;color:var(--mute);margin-bottom:12px}
+.tri label.q{display:block;font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:var(--mute);margin:10px 0 6px}
+.seg{display:flex;flex-wrap:wrap;gap:6px}
+.seg button{font-family:inherit;font-size:12px;font-weight:600;padding:7px 10px;border-radius:8px;border:1px solid var(--line);background:#fff;cursor:pointer;color:var(--ink2);transition:.12s}
+.seg button:hover{border-color:var(--ink2)}
+.seg button.on{background:var(--ink);border-color:var(--ink);color:#fff}
+.tri input{width:100%;font-family:inherit;font-size:13px;padding:9px 10px;border:1px solid var(--line);border-radius:8px}
+.tri .out{margin-top:12px;display:flex;gap:8px;align-items:center}
+.tri .out .btn{flex:1;justify-content:center}
+.tri .hint{font-size:11px;color:var(--mute);margin-top:8px}
+
+/* stats strip */
+.stats{display:grid;grid-template-columns:repeat(5,1fr);border-top:1px solid var(--line);background:#fff}
+.stats div{padding:14px 16px;border-right:1px solid var(--line)}
+.stats div:last-child{border-right:0}
+.stats b{display:block;font-size:22px;font-weight:900;letter-spacing:-.02em}
+.stats small{font-size:12px;color:var(--mute)}
+
+/* sections */
+.sec{padding:44px 0;border-bottom:1px solid var(--line)}
+.sec.white{background:rgba(255,255,255,.55)}
+
+/* luz que sigue al mouse sobre una malla (misma técnica que el Rastro: capa fija + máscara) */
+main,.top,footer.site{position:relative;z-index:1}
+.glow{position:fixed;inset:0;z-index:0;pointer-events:none;opacity:0;transition:opacity .4s;--mx:-600px;--my:-600px;
+  -webkit-mask:var(--tile) 0 0/var(--ts) var(--ts) repeat;mask:var(--tile) 0 0/var(--ts) var(--ts) repeat}
+.glow.on{opacity:1}
+.glow.s-marca{--ts:18px;--tile:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='18' height='18'><polygon points='7,7 11.5,7 9.5,11 5,11'/></svg>");
+  background:radial-gradient(320px circle at var(--mx) var(--my),rgba(139,92,246,.95),rgba(34,184,126,.8) 40%,rgba(245,160,26,.55) 68%,transparent 100%)}
+@media (hover:none),(max-width:1000px){.glow{display:none}}
+.sh{display:flex;justify-content:space-between;align-items:end;gap:20px;margin-bottom:20px;flex-wrap:wrap}
+h2{font-size:26px;font-weight:900;letter-spacing:-.02em;margin-top:4px}
+.sh p{color:var(--mute);max-width:520px;font-size:14px}
+
+/* tabs servicios */
+.tabs{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:14px}
+.tabs button{font-family:inherit;font-weight:700;font-size:13px;padding:8px 14px;border-radius:9px;border:1px solid var(--line);background:#fff;cursor:pointer;color:var(--ink2)}
+.tabs button.on{color:#fff;border-color:transparent}
+.tabs button[data-t=ind].on{background:var(--p)}
+.tabs button[data-t=com].on{background:var(--g)}
+.tabs button[data-t=res].on{background:var(--y)}
+.panel{display:none;grid-template-columns:1fr 2fr;gap:16px}
+.panel.on{display:grid}
+.pintro{background:var(--dark);color:#E2E8F0;border-radius:14px;padding:20px;font-size:14px}
+.pintro h3{color:#fff;font-size:18px;margin-bottom:8px}
+.pintro .k{margin-top:14px;padding-top:14px;border-top:1px solid rgba(255,255,255,.12);font-size:13px}
+.pintro .k b{color:#fff}
+.grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
+.cell{background:#fff;border:1px solid var(--line);border-radius:12px;padding:14px;transition:.15s}
+.cell:hover{border-color:#94A3B8;transform:translateY(-2px)}
+.cell h4{font-size:14px;font-weight:800;margin-bottom:4px}
+.cell p{font-size:12.5px;color:var(--mute)}
+
+/* mantenimiento */
+.mgrid{display:grid;grid-template-columns:1.4fr 1fr;gap:16px}
+table{width:100%;border-collapse:separate;border-spacing:0;background:#fff;border:1px solid var(--line);border-radius:12px;overflow:hidden;font-size:13px}
+th,td{padding:10px 12px;text-align:left;border-bottom:1px solid var(--line)}
+th{background:#F8FAFC;font-size:11px;text-transform:uppercase;letter-spacing:.06em;color:var(--mute)}
+tr:last-child td{border-bottom:0}
+td.y{color:var(--g);font-weight:800}
+td.n{color:#CBD5E1}
+.signs{background:#fff;border:1px solid var(--line);border-radius:12px;padding:16px}
+.signs h3{font-size:15px;font-weight:800;margin-bottom:10px}
+.signs label{display:flex;gap:8px;align-items:flex-start;font-size:13px;padding:6px 0;border-bottom:1px dashed var(--line);cursor:pointer}
+.signs label:last-of-type{border-bottom:0}
+.signs input{margin-top:3px;accent-color:var(--p)}
+.meter{margin-top:12px;height:8px;border-radius:99px;background:#F1F5F9;overflow:hidden}
+.meter i{display:block;height:100%;width:0;background:linear-gradient(90deg,var(--g),var(--y),#DC2626);transition:width .3s}
+.verdict{font-size:12.5px;font-weight:600;margin-top:8px;color:var(--ink2);min-height:38px}
+
+/* VRF / ingeniería */
+.igrid{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
+.icard{background:#fff;border:1px solid var(--line);border-radius:12px;padding:16px;position:relative;overflow:hidden}
+.icard:before{content:"";position:absolute;left:0;top:0;bottom:0;width:4px}
+.icard.g:before{background:var(--g)}.icard.p:before{background:var(--p)}.icard.y:before{background:var(--y)}.icard.k:before{background:var(--ink)}
+.icard h4{font-size:14px;font-weight:800;margin-bottom:6px}
+.icard p,.icard li{font-size:12.5px;color:var(--ink2)}
+.icard ul{padding-left:16px}
+.vrf{margin-top:14px;display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.vrf .box{background:var(--dark);color:#CBD5E1;border-radius:12px;padding:18px;font-size:13px}
+.vrf .box h4{color:#fff;font-size:15px;margin-bottom:8px}
+.vrf .flow{display:flex;gap:6px;align-items:center;flex-wrap:wrap;margin-top:10px}
+.vrf .flow span{background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.14);border-radius:7px;padding:5px 8px;font-size:11.5px;color:#fff}
+.vrf .flow em{color:var(--y);font-style:normal}
+.fit{display:grid;grid-template-columns:repeat(5,1fr);gap:6px;margin-top:10px}
+.fit div{text-align:center;font-size:11.5px;background:rgba(255,255,255,.06);border-radius:7px;padding:8px 4px;color:#fff}
+
+/* empresa */
+.egrid{display:grid;grid-template-columns:1fr 1fr;gap:24px}
+.tl{list-style:none;border-left:2px solid var(--line);padding-left:16px}
+.tl li{position:relative;padding-bottom:14px;font-size:13px;color:var(--ink2)}
+.tl li:before{content:"";position:absolute;left:-22px;top:4px;width:10px;height:10px;border-radius:2px;transform:skewX(-20deg);background:var(--p)}
+.tl li:nth-child(2):before{background:var(--g)}.tl li:nth-child(3):before{background:var(--y)}
+.tl b{display:block;color:var(--ink);font-size:14px}
+.quote{background:#fff;border:1px solid var(--line);border-radius:12px;padding:16px;font-size:13.5px;color:var(--ink2);margin-bottom:10px}
+.quote footer{margin-top:8px;font-size:12px;color:var(--mute)}
+.quote footer b{color:var(--ink)}
+.logos{display:flex;flex-wrap:wrap;gap:6px}
+.logos span{font-size:12px;font-weight:700;padding:6px 10px;border-radius:8px;background:#fff;border:1px solid var(--line);color:var(--ink2)}
+.mini{font-size:11px;font-weight:800;letter-spacing:.08em;text-transform:uppercase;color:var(--mute);margin:14px 0 8px}
+.vals{display:grid;grid-template-columns:1fr 1fr;gap:6px}
+.vals div{font-size:12.5px;background:#fff;border:1px solid var(--line);border-radius:8px;padding:8px 10px}
+
+/* contacto */
+.cgrid{display:grid;grid-template-columns:repeat(4,1fr);gap:10px}
+.cc{background:#fff;border:1px solid var(--line);border-radius:12px;padding:16px;display:block;transition:.15s}
+.cc:hover{border-color:var(--ink2)}
+.cc small{font-size:11px;font-weight:800;letter-spacing:.08em;text-transform:uppercase;color:var(--mute)}
+.cc b{display:block;font-size:17px;font-weight:800;margin:4px 0 2px;letter-spacing:-.01em}
+.cc p{font-size:12px;color:var(--mute)}
+.cc.wa{background:var(--g);border-color:var(--g);color:#fff}
+.cc.wa small,.cc.wa p{color:rgba(255,255,255,.85)}
+
+footer.site{background:var(--dark);color:#94A3B8;font-size:12.5px;padding:24px 0}
+footer.site .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;align-items:center}
+footer.site .logo{color:#fff;font-size:16px}
+footer.site .logo span{color:#94A3B8}
+
+@media (max-width:1000px){
+  nav{display:none}
+  nav.open{display:flex;flex-direction:column;position:absolute;top:60px;left:0;right:0;background:#fff;border-bottom:1px solid var(--line);padding:8px 16px}
+  .burger{display:block;margin-left:auto}
+  header .btn.wa{display:none}
+  .hero .wrap:first-child,.mgrid,.egrid,.panel.on,.vrf{grid-template-columns:1fr}
+  .grid3,.igrid,.cgrid{grid-template-columns:1fr 1fr}
+  .stats{grid-template-columns:repeat(3,1fr)}
+  .stats div:nth-child(n+4){border-top:1px solid var(--line)}
+  .top .r span:not(:first-child){display:none}
+  h1{font-size:32px}
+}
+@media (max-width:560px){
+  .grid3,.igrid,.cgrid,.vals{grid-template-columns:1fr}
+  .stats{grid-template-columns:1fr 1fr}
+  .fit{grid-template-columns:repeat(3,1fr)}
+  .top .l{display:none}
+}
+
+/* hero v2: texto grande + carrusel */
+.hero .wrap:first-child{grid-template-columns:7fr 5fr;gap:40px;align-items:center;padding-top:44px;padding-bottom:36px}
+.badge{display:inline-flex;align-items:center;gap:4px;font-size:12px;font-weight:700;padding:6px 12px;border-radius:999px;background:#F5F3FF;border:1px solid #DDD6FE;color:#4C1D95}
+h1{font-size:52px;line-height:1.05;margin:16px 0 14px}
+.lead{font-size:17px}
+.btn.big{padding:13px 18px;font-size:14px}
+.trust{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;border-top:1px solid var(--line);padding-top:16px}
+.trust i{display:block;width:22px;height:10px;border-radius:2px;transform:skewX(-20deg);margin-bottom:8px}
+.trust b{display:block;font-size:13px}.trust small{font-size:12px;color:var(--mute)}
+.car{position:relative;aspect-ratio:4/3;border-radius:18px;overflow:visible}
+.car .slide{position:absolute;inset:0;opacity:0;transition:opacity 1s ease;border-radius:18px;overflow:hidden;box-shadow:0 20px 40px -18px rgba(15,23,42,.5)}
+.car .slide.on{opacity:1}
+.car .slide .ph{height:100%;border-radius:0}
+.car .slide img{width:100%;height:100%;object-fit:cover;display:block}
+.car .slide:after{content:"";position:absolute;inset:0;background:linear-gradient(to top,rgba(15,23,42,.85),transparent 55%)}
+.seal{position:absolute;top:-18px;right:-14px;z-index:5;width:84px;height:84px;border-radius:50%;background:#fff;box-shadow:0 8px 24px rgba(0,0,0,.2);display:flex;flex-direction:column;align-items:center;justify-content:center;font-size:12px;font-weight:900;border:2px solid #EDE9FE}
+.dots{position:absolute;top:14px;left:14px;z-index:4;display:flex;gap:6px;padding:5px 7px;border-radius:99px;background:rgba(0,0,0,.35)}
+.dots button{width:8px;height:8px;border-radius:99px;border:0;background:rgba(255,255,255,.4);cursor:pointer;transition:.2s;padding:0}
+.dots button.on{background:#fff;width:20px}
+.cap{position:absolute;left:14px;right:14px;bottom:14px;z-index:4;background:rgba(255,255,255,.95);border-radius:12px;padding:12px 14px;display:grid;grid-template-columns:1fr auto;gap:2px 10px;align-items:center}
+.cap b{font-size:14px}.cap small{grid-column:1;font-size:12px;color:var(--mute)}
+.cap a{grid-row:1/3;grid-column:2;font-size:12px;font-weight:700;color:var(--p)}
+/* placeholders de imagen */
+.ph{position:relative;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;gap:4px;border-radius:12px;padding:14px;
+  background:repeating-linear-gradient(135deg,rgba(255,255,255,.05) 0 12px,transparent 12px 24px),linear-gradient(135deg,var(--c1),var(--c2));
+  border:1.5px dashed rgba(100,116,139,.45);color:var(--ink2)}
+.ph:before{content:"";width:34px;height:26px;border:2px solid currentColor;border-radius:4px;opacity:.6;
+  background:radial-gradient(circle at 30% 35%,currentColor 3px,transparent 4px),linear-gradient(135deg,transparent 55%,currentColor 55% 60%,transparent 60%)}
+.ph span{font-family:ui-monospace,Consolas,monospace;font-size:12px;font-weight:700}
+.ph small{font-size:11px;opacity:.8;max-width:280px}
+.ph.dark{color:#E2E8F0;border-color:rgba(255,255,255,.25)}
+.ph.sm{aspect-ratio:16/10;margin-bottom:12px}
+.ph.map{aspect-ratio:2/1;margin-top:10px}
+.ph.logo-ph{aspect-ratio:auto;padding:10px;margin-top:8px}
+/* contacto v2 */
+.ctwo{display:grid;grid-template-columns:1fr 1.15fr;gap:16px;align-items:start}
+.cgrid{grid-template-columns:1fr 1fr}
+.cc b.em{font-size:15px;line-height:1.25}
+@media (max-width:1000px){
+  .hero .wrap:first-child,.ctwo{grid-template-columns:1fr}
+  h1{font-size:36px}
+  .seal{right:6px;top:-12px;width:68px;height:68px}
+}
+@media (max-width:560px){.trust{grid-template-columns:1fr}.cgrid{grid-template-columns:1fr}h1{font-size:30px}}
+
+/* testimoniales: foto circular */
+.testi{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:24px}
+.tcard{margin:0;background:#fff;border:1px solid var(--line);border-radius:16px;padding:22px;display:grid;grid-template-columns:auto 1fr;gap:6px 20px;align-items:start}
+.avatar{grid-row:1/3;width:104px;height:104px;border-radius:50%;padding:4px;background:conic-gradient(var(--g) 0 33%,var(--p) 0 66%,var(--y) 0)}
+.avatar .ring{width:100%;height:100%;border-radius:50%;overflow:hidden;border:3px solid #fff;background:#fff}
+.avatar img{width:100%;height:100%;object-fit:cover;display:block}
+.tcard blockquote{font-size:15px;line-height:1.55;color:var(--ink2)}
+.tcard figcaption b{display:block;font-size:15px;color:var(--ink)}
+.tcard figcaption span{font-size:12.5px;color:var(--mute)}
+@media (max-width:1000px){.testi,.egrid{grid-template-columns:1fr}}
+@media (max-width:560px){.tcard{grid-template-columns:1fr;justify-items:center;text-align:center}.avatar{grid-row:auto}.igrid{grid-template-columns:1fr}}
+
+.core{display:flex;flex-wrap:wrap;gap:6px;align-items:center;margin:-4px 0 16px;padding:12px 14px;background:var(--bg);border:1px solid var(--line);border-radius:12px}
+.core .lbl{font-size:12px;font-weight:800;color:var(--ink2);margin-right:4px}
+.core span:not(.lbl):not(.src){font-size:12.5px;font-weight:700;padding:5px 10px;border-radius:8px;background:#fff;border:1px solid var(--line)}
+.core .vrf-chip{background:var(--ink)!important;color:#fff;border-color:var(--ink)!important}
+
+/* fotos reales */
+.photo{width:100%;aspect-ratio:16/10;object-fit:cover;border-radius:12px;margin-bottom:12px;display:block}
+/* reproductor tipo historia */
+.pair{display:grid;grid-template-columns:340px 1fr;gap:20px;align-items:start}
+.pside{min-width:0}
+.pair .mgrid{grid-template-columns:1fr}
+.player{position:relative;aspect-ratio:9/16;border-radius:20px;overflow:hidden;background:var(--dark);box-shadow:0 24px 50px -22px rgba(15,23,42,.6);user-select:none;-webkit-user-select:none;outline:none}
+.player:focus-visible{box-shadow:0 0 0 3px var(--p)}
+.player .pimg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0;transform:scale(1.04);transition:opacity .6s ease,transform 5.5s linear}
+.player .pimg.on{opacity:1;transform:scale(1.12)}
+.player:after{content:"";position:absolute;inset:0;pointer-events:none;background:linear-gradient(to bottom,rgba(15,23,42,.55),transparent 22%,transparent 60%,rgba(15,23,42,.9))}
+.pbars{position:absolute;top:10px;left:10px;right:10px;z-index:3;display:flex;gap:4px}
+.pbars span{flex:1;height:3px;border-radius:2px;background:rgba(255,255,255,.35);overflow:hidden}
+.pbars i{display:block;height:100%;width:0;background:#fff}
+.phead{position:absolute;top:22px;left:12px;right:12px;z-index:3;display:flex;align-items:center;gap:8px;color:#fff;font-size:13px;line-height:1.2}
+.phead .av{width:30px;height:30px;border-radius:50%;background:#fff;display:flex;align-items:center;justify-content:center;box-shadow:0 0 0 2px var(--p)}
+.phead small{opacity:.75;font-size:11px}
+.phead .pp{margin-left:auto;background:rgba(0,0,0,.35);border:0;color:#fff;width:30px;height:30px;border-radius:50%;cursor:pointer;font-size:12px;position:relative;z-index:4}
+.pcap{position:absolute;left:16px;right:16px;bottom:16px;z-index:3;color:#fff}
+.pcap .tag{display:inline-block;font-size:11px;font-weight:700;padding:3px 8px;border-radius:99px;background:rgba(255,255,255,.18);backdrop-filter:blur(4px);margin-bottom:6px}
+.pcap b{display:block;font-size:18px;line-height:1.25}
+.pz{position:absolute;top:60px;bottom:90px;z-index:2;width:40%;background:none;border:0;cursor:pointer}
+.pz.prev{left:0}.pz.next{right:0;width:60%}
+.player.paused .pbars i{opacity:.6}
+@media (max-width:1000px){.pair{grid-template-columns:1fr}.player{width:min(100%,360px);margin:0 auto}}
+
+/* tarjetas de servicio con foto de fondo (solo escritorio; en tablet y celular no se descargan) */
+@media (min-width:1001px){
+  .cell.img{position:relative;overflow:hidden;display:flex;flex-direction:column;justify-content:flex-end;min-height:190px;border:0;background:var(--dark);padding:16px}
+  .cell.img:before{content:"";position:absolute;inset:0;background:var(--img) var(--pos,center)/cover no-repeat;transition:transform .6s ease}
+  .cell.img:after{content:"";position:absolute;inset:0;background:linear-gradient(to top,rgba(15,23,42,.94) 0%,rgba(15,23,42,.6) 42%,rgba(15,23,42,.08) 100%);transition:opacity .4s}
+  .cell.img>*{position:relative;z-index:1}
+  .cell.img h4{color:#fff;font-size:15px;margin-bottom:2px}
+  .cell.img p{color:#E2E8F0;font-size:12.5px}
+  .cell.img:hover{transform:translateY(-2px)}
+  .cell.img:hover:before{transform:scale(1.07)}
+  .cell.img:hover:after{opacity:.85}
+}
+
+/* credenciales: línea de tiempo con documentos tipo hoja */
+.creds{margin-top:28px;padding-top:22px;border-top:1px solid var(--line)}
+.creds-h{display:flex;justify-content:space-between;align-items:end;gap:16px;margin-bottom:6px}
+.creds-h p{font-size:13px;color:var(--mute);margin-top:4px}
+.cnav{display:flex;gap:6px}
+.cnav button{width:36px;height:36px;border-radius:50%;border:1px solid var(--line);background:#fff;font-size:20px;cursor:pointer;color:var(--ink2)}
+.cnav button:hover{border-color:var(--ink2)}
+.ctrack{list-style:none;display:grid;grid-auto-flow:column;grid-auto-columns:minmax(190px,1fr);gap:18px;overflow-x:auto;scroll-snap-type:x mandatory;padding:18px 4px 8px;position:relative;scrollbar-width:thin;
+  background:linear-gradient(var(--line),var(--line)) 0 31px/100% 2px no-repeat}
+.cred{scroll-snap-align:start;display:flex;flex-direction:column;align-items:center;text-align:center}
+.cyear{position:relative;z-index:1;font-size:12px;font-weight:800;color:#fff;background:var(--ink);padding:3px 10px;border-radius:99px;margin-bottom:14px;box-shadow:0 0 0 4px var(--bg)}
+.cred:nth-child(3n+1) .cyear{background:var(--p)}.cred:nth-child(3n+2) .cyear{background:var(--g)}.cred:nth-child(3n) .cyear{background:var(--y)}
+.cpaper{border:0;padding:6px;background:#fff;cursor:zoom-in;height:170px;width:100%;display:flex;align-items:center;justify-content:center;border-radius:3px;
+  box-shadow:0 1px 2px rgba(15,23,42,.12),0 10px 22px -12px rgba(15,23,42,.45);transform:rotate(-1.6deg);transition:transform .3s ease,box-shadow .3s ease}
+.cred:nth-child(even) .cpaper{transform:rotate(1.4deg)}
+.cpaper img{max-width:100%;max-height:100%;object-fit:contain;display:block}
+.cpaper:hover,.cpaper:focus-visible{transform:rotate(0) translateY(-6px) scale(1.03);box-shadow:0 2px 4px rgba(15,23,42,.12),0 22px 36px -16px rgba(15,23,42,.55);outline:none}
+.cinfo{margin-top:14px;display:flex;flex-direction:column;gap:2px}
+.ctype{font-size:10.5px;font-weight:800;letter-spacing:.08em;text-transform:uppercase;color:var(--p)}
+.cinfo b{font-size:13.5px;line-height:1.3}
+.cinfo small{font-size:12px;color:var(--mute)}
+.cdlg{margin:auto;border:0;border-radius:16px;padding:0;max-width:min(920px,94vw);width:100%;box-shadow:0 30px 80px rgba(0,0,0,.4)}
+.cdlg::backdrop{background:rgba(15,23,42,.8);backdrop-filter:blur(3px)}
+.cdlg figure{margin:0;display:grid;grid-template-columns:1.4fr 1fr}
+.cdoc{background:#F1F5F9;display:flex;align-items:center;justify-content:center;padding:24px;min-height:360px}
+.cdoc img{width:100%;max-width:620px;max-height:72vh;object-fit:contain;box-shadow:0 10px 30px -10px rgba(15,23,42,.5);background:#fff}
+.cdlg figcaption{padding:28px 24px;display:flex;flex-direction:column;gap:6px}
+.cdlg figcaption b{font-size:18px;line-height:1.3}
+.cdlg figcaption small{font-size:13px;color:var(--mute)}
+.cdnote{font-size:11.5px;color:var(--mute);margin-top:auto;padding-top:14px;border-top:1px dashed var(--line)}
+.cdnav{display:flex;gap:8px;margin-top:10px}
+.cdnav button{flex:1;font:inherit;font-size:13px;font-weight:700;padding:9px;border-radius:9px;border:1px solid var(--line);background:#fff;cursor:pointer}
+.cx{position:absolute;top:10px;right:12px;z-index:2;width:34px;height:34px;border-radius:50%;border:0;background:rgba(15,23,42,.08);font-size:20px;cursor:pointer}
+@media (max-width:1000px){.cnav{display:none}.ctrack{grid-auto-columns:200px}}
+@media (max-width:700px){.cdlg figure{grid-template-columns:1fr}.cdoc{min-height:0;padding:16px}.cdoc img{max-height:50vh}}
+</style>
+</head>
+<body>
+
+<div class="glow s-marca" id="glow" aria-hidden="true"></div>
+
+<div class="top"><div class="wrap">
+  <div class="l"><span class="dot"></span>Chihuahua, Chih. · HVAC industrial, comercial y residencial desde 1998</div>
+  <div class="r">
+    <span>Tel <a href="tel:+526143130551"><b>614 313 0551</b></a></span>
+    <span><a href="mailto:teamrefrigeracion@yahoo.com.mx"><b>teamrefrigeracion@yahoo.com.mx</b></a></span>
+    <span>L–V 9:00–15:00</span>
+  </div>
+</div></div>
+
+<header><div class="wrap">
+  <a href="#top" class="logo" aria-label="Team Refrigeración">
+    <svg width="34" height="34" viewBox="0 0 40 44" aria-hidden="true">
+      <polygon points="4,11 15,11 11,19 0,19" fill="#22B87E"/>
+      <polygon points="24,5 35,5 25,24 14,24" fill="#8B5CF6"/>
+      <polygon points="18,27 29,27 22,40 11,40" fill="#F5A01A"/>
+    </svg>
+    Team <span>Refrigeración</span>
+  </a>
+  <nav id="nav">
+    <a href="#servicios">Servicios</a>
+    <a href="#mantenimiento">Mantenimiento</a>
+    <a href="#ingenieria">Ingeniería y VRF</a>
+    <a href="#empresa">Empresa</a>
+    <a href="#contacto">Contacto</a>
+  </nav>
+  <a class="btn wa" href="https://wa.me/526141420285" target="_blank" rel="noopener">WhatsApp 614 142 0285</a>
+  <button class="burger" onclick="document.getElementById('nav').classList.toggle('open')" aria-label="Menú">☰</button>
+</div></header>
+
+<main id="top">
+<!-- HERO -->
+<section class="hero">
+  <div class="wrap">
+    <div class="hl">
+      <div class="badge"><span class="dot"></span>Tecnología Avanzada en Mantenimiento · desde 1998</div>
+      <h1>Climatización y refrigeración que <em>no se detiene</em>.</h1>
+      <p class="lead">Venta, instalación, mantenimiento y reparación de minisplit, unidades paquete, chillers, cuartos fríos y VRF para maquiladoras, comercios y hogares en Chihuahua. Cuando llama, contesta un técnico — no un contestador.</p>
+      <div class="ctas">
+        <a class="btn wa big" href="https://wa.me/526141420285?text=Hola%20Team%20Refrigeraci%C3%B3n%2C%20quiero%20una%20cotizaci%C3%B3n" target="_blank" rel="noopener">Solicitar cotización por WhatsApp</a>
+        <a class="btn ghost big" href="tel:+526143130551">Llamar 614 313 0551</a>
+      </div>
+      <div class="trust">
+        <div><i style="background:var(--p)"></i><b>Industrial / maquila</b><small>Chillers, aire lavado, naves</small></div>
+        <div><i style="background:var(--g)"></i><b>Comercial</b><small>Oficinas, hoteles, restaurantes</small></div>
+        <div><i style="background:var(--y)"></i><b>Residencial</b><small>Minisplit, calefacción</small></div>
+      </div>
+    </div>
+
+    <!-- Carrusel: crossfade 5 s, pausa al pasar el cursor -->
+    <div class="car" id="car">
+      <div class="seal"><svg width="30" height="33" viewBox="0 0 40 44"><polygon points="4,11 15,11 11,19 0,19" fill="#22B87E"/><polygon points="24,5 35,5 25,24 14,24" fill="#8B5CF6"/><polygon points="18,27 29,27 22,40 11,40" fill="#F5A01A"/></svg><b>1998</b></div>
+      <div class="slide on" data-cap="AHR Expo México · Monterrey 2025" data-sub="Actualización constante en HVACR">
+        <img src="/images/obra/expo-ahr-2025.jpg" alt="Equipo de Team Refrigeración en AHR Expo México 2025" style="object-position:5% 50%" fetchpriority="high"></div>
+      <div class="slide" data-cap="Chillers y refrigeración industrial" data-sub="Servicio el mismo día · 365 días">
+        <img src="/images/obra/obra-compresor.jpg" alt="Técnico guiando un compresor en plataforma industrial" style="object-position:50% 28%" loading="lazy"></div>
+      <div class="slide" data-cap="Proyectos VRF / TVR / VRV" data-sub="Zonas independientes, menor consumo">
+        <img src="/images/obra/obra-vrv-daikin.jpg" alt="Instalación de condensadora Daikin VRV en azotea" style="object-position:50% 46%" loading="lazy"></div>
+      <div class="slide" data-cap="Instalación y reemplazo de unidades paquete" data-sub="Maniobras con grúa en sitio">
+        <img src="/images/obra/obra-paquete-grua.jpg" alt="Unidad paquete suspendida por grúa sobre azotea" style="object-position:50% 50%" loading="lazy"></div>
+      <div class="slide" data-cap="Refrigeración industrial" data-sub="Racks de compresores y condensadores">
+        <img src="/images/obra/obra-rack-refrigeracion.jpg" alt="Rack de compresores con condensador remoto en azotea industrial" style="object-position:38% 50%" loading="lazy"></div>
+      <div class="dots" id="dots"></div>
+      <div class="cap"><div><span class="dot"></span><b id="capT"></b></div><small id="capS"></small><a href="#servicios">Ver servicios →</a></div>
+    </div>
+  </div>
+  <div class="wrap" style="display:block;padding-top:0;padding-bottom:0">
+    <div class="stats">
+      <div><b>1998</b><small>Fundada en Chihuahua</small></div>
+      <div><b>28 años</b><small>de operación continua</small></div>
+      <div><b>365 días</b><small>Servicio el mismo día</small></div>
+      <div><b>24 h</b><small>Emergencias residenciales</small></div>
+      <div><b>Todas</b><small>las marcas, incluido equipo de restaurante</small></div>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICIOS -->
+<section id="servicios" class="sec white">
+  <div class="wrap">
+    <div class="sh">
+      <div><div class="eyebrow">01 · Servicios</div><h2>Qué atendemos, por tipo de cliente</h2></div>
+      <p>Trabajamos con todas las marcas. Certificados en servicio y garantías York, Carrier, Rittal, Trane y Daikin.</p>
+    </div>
+    <div class="core"><span class="lbl">Venta, instalación, mantenimiento y reparación de:</span>
+      <span>Minisplit</span><span>Calefacción a gas y diésel</span><span>Unidades paquete</span><span>Unidades divididas</span><span>Cuartos fríos</span><span>Chillers</span><span class="vrf-chip">VRF · TVR · VRV</span>
+    </div>
+    <div class="tabs" id="tabs">
+      <button data-t="ind" class="on">Industrial</button>
+      <button data-t="com">Comercial</button>
+      <button data-t="res">Residencial</button>
+    </div>
+
+    <div class="panel on" data-p="ind">
+      <div class="pintro"><img class="photo" src="/images/obra/obra-grua.jpg" alt="Maniobra con grúa para subir un compresor a planta industrial" style="object-position:50% 40%" loading="lazy"><h3>Plantas y maquiladoras</h3>Control preciso de temperatura para procesos y naves. Sabemos que un paro prolongado cuesta producción: respondemos el mismo día.
+        <div class="k"><b>Clientes:</b> Labinal (Safran), Fokker, Cessna, Atlas Aerospace, Bourns, Key Plastics, Vitromex, Lutron.</div></div>
+      <div class="grid3">
+        <div class="cell img" style="--img:url(/images/servicios/chillers.jpg);--pos:50% 60%"><h4>Chillers</h4><p>Venta, instalación, servicio y reparación.</p></div>
+        <div class="cell img" style="--img:url(/images/servicios/aire-lavado.jpg);--pos:62% 62%"><h4>Aire lavado</h4><p>Mantenimiento de sistemas evaporativos para naves.</p></div>
+        <div class="cell img" style="--img:url(/images/servicios/cuartos-frios.jpg);--pos:35% 55%"><h4>Cuartos fríos</h4><p>Conservación de producto y procesos con temperatura crítica.</p></div>
+        <div class="cell img" style="--img:url(/images/servicios/unidades-paquete.jpg);--pos:45% 62%"><h4>Unidades paquete y divididas</h4><p>Instalación, diagnóstico y reemplazo de componentes.</p></div>
+        <div class="cell img" style="--img:url(/images/servicios/enfriamiento-tableros.jpg);--pos:55% 50%"><h4>Enfriamiento de tableros</h4><p>Equipos Rittal para gabinetes eléctricos.</p></div>
+        <div class="cell img" style="--img:url(/images/servicios/refacciones-garantias.jpg);--pos:40% 45%"><h4>Refacciones y garantías</h4><p>York, Carrier, Rittal, Trane y Daikin.</p></div>
+      </div>
+    </div>
+
+    <div class="panel" data-p="com">
+      <div class="pintro"><img class="photo" src="/images/obra/obra-cassette.jpg" alt="Instalación de equipo cassette en plafón" style="object-position:50% 43%" loading="lazy"><h3>Comercios, oficinas, hoteles y escuelas</h3>Confort constante para clientes y personal, con costos de operación bajo control.
+        <div class="k"><b>Clientes:</b> Quality Inn, Tec de Monterrey, Grupo Modelo, Gobierno del Estado (SEyD), Policía Federal.</div></div>
+      <div class="grid3">
+        <div class="cell img" style="--img:url(/images/servicios/com-miniymulti.jpg);--pos:35% 45%"><h4>Minisplit y multisplit</h4><p>Venta, instalación y mantenimiento.</p></div>
+        <div class="cell img" style="--img:url(/images/servicios/com-vrf.jpg);--pos:45% 60%"><h4>Sistemas VRF / TVR / VRV</h4><p>Diseño, venta, instalación y diagnóstico.</p></div>
+        <div class="cell img" style="--img:url(/images/servicios/com-restaurantes.jpg);--pos:45% 60%"><h4>Equipo de restaurante</h4><p>Cámaras, refrigeradores y extracción.</p></div>
+        <div class="cell img" style="--img:url(/images/servicios/com-calefaccion.jpg);--pos:35% 55%"><h4>Calefacción a gas o diésel</h4><p>Hornos, calentadores y calderas.</p></div>
+        <div class="cell img" style="--img:url(/images/servicios/com-calidadaire.jpg);--pos:50% 55%"><h4>Calidad del aire</h4><p>Filtración y flujo de aire en interiores.</p></div>
+        <div class="cell img" style="--img:url(/images/servicios/com-contratos.jpg);--pos:50% 45%"><h4>Contrato anual</h4><p>Visitas programadas por temporada.</p></div>
+      </div>
+    </div>
+
+    <div class="panel" data-p="res">
+      <div class="pintro"><img class="photo" src="/images/obra/obra-residencial-paquetes.jpg" alt="Dos unidades paquete instaladas en azotea residencial en Chihuahua" style="object-position:50% 60%" loading="lazy"><h3>Hogares</h3>Especialistas en problemas difíciles de flujo de aire, calidad del aire interior y control de temperatura. Técnicos certificados.
+        <div class="k"><b>Con contrato:</b> calendario de inspecciones planeadas antes de cada temporada.</div></div>
+      <div class="grid3">
+        <div class="cell img" style="--img:url(/images/servicios/res-calefaccion.jpg);--pos:35% 55%"><h4>Calefacción</h4><p>Sistemas, calderas y calentadores de agua.</p></div>
+        <div class="cell img" style="--img:url(/images/servicios/res-aire-acondicionado.jpg);--pos:65% 40%"><h4>Aire acondicionado</h4><p>Minisplit, refrigeración y equipo doméstico.</p></div>
+        <div class="cell img" style="--img:url(/images/servicios/res-termostatos.jpg);--pos:45% 45%"><h4>Termostatos y filtros</h4><p>Instalación y reemplazo.</p></div>
+        <div class="cell img" style="--img:url(/images/servicios/res-monoxido.jpg);--pos:50% 50%"><h4>Prueba de monóxido</h4><p>Revisión de seguridad en calefacción a gas.</p></div>
+        <div class="cell img" style="--img:url(/images/servicios/res-fallas-refacciones.jpg);--pos:40% 55%"><h4>Fallas y refacciones</h4><p>Localización de fallas y cambio de componentes.</p></div>
+        <div class="cell img" style="--img:url(/images/servicios/res-refrigerante.jpg);--pos:45% 50%"><h4>Recuperación de refrigerante</h4><p>Manejo conforme a norma.</p></div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+
+<!-- MANTENIMIENTO -->
+<section id="mantenimiento" class="sec white">
+  <div class="wrap">
+    <div class="sh">
+      <div><div class="eyebrow">02 · Mantenimiento</div><h2>Contratos de mantenimiento preventivo</h2></div>
+      <p>Un contrato anual alarga la vida del equipo y evita paros y costos inesperados. Un técnico calificado revisa su sistema antes de cada temporada.</p>
+    </div>
+    <div class="pair">
+      <div class="player" data-player="A" tabindex="0" aria-label="Trabajos recientes, historia"></div>
+      <div class="pside">
+      <div class="mgrid">
+        <table>
+          <thead><tr><th>Incluye</th><th>Residencial</th><th>Comercial / Industrial</th></tr></thead>
+          <tbody>
+            <tr><td>Inspección antes de temporada de frío y calor</td><td class="y">✓</td><td class="y">✓</td></tr>
+            <tr><td>Lugar en el calendario de visitas planeadas</td><td class="y">✓</td><td class="y">✓</td></tr>
+            <tr><td>Refrigeración, aire lavado y calefacción</td><td class="n">—</td><td class="y">✓</td></tr>
+            <tr><td>Servicio y soporte el mismo día, 365 días</td><td class="n">—</td><td class="y">✓</td></tr>
+            <tr><td>Reporte de condición del equipo</td><td class="y">✓</td><td class="y">✓</td></tr>
+          </tbody>
+        </table>
+        <div class="signs" id="signs">
+          <h3>¿Su equipo necesita servicio?</h3>
+          <label><input type="checkbox">Enfría o calienta menos que antes</label>
+          <label><input type="checkbox">Hace ruido o vibra más de lo normal</label>
+          <label><input type="checkbox">El recibo de luz o gas subió sin razón</label>
+          <label><input type="checkbox">Gotea agua o se forma hielo</label>
+          <label><input type="checkbox">Arranca y para muy seguido</label>
+          <label><input type="checkbox">Más de 12 meses sin mantenimiento</label>
+          <div class="meter"><i id="meterBar" class="mbar"></i></div>
+          <div class="verdict" id="verdict">Marque lo que ha notado.</div>
+        </div>
+      </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- INGENIERÍA Y VRF -->
+<section id="ingenieria" class="sec white">
+  <div class="wrap">
+    <div class="sh">
+      <div><div class="eyebrow">03 · Ingeniería y VRF</div><h2>Proyectos con cálculo, no a ojo</h2></div>
+      <p>Departamento de ingeniería propio: calculamos cargas térmicas y diseñamos según los requerimientos de su edificio.</p>
+    </div>
+    <div class="igrid">
+      <div class="icard p"><h4>Cargas térmicas</h4><p>Dimensionamiento correcto antes de comprar equipo. Evita equipos sobrados o insuficientes.</p></div>
+      <div class="icard g"><h4>Auditoría energética</h4><p>Consultoría de diseño, selección de producto y plan integral por etapas.</p></div>
+      <div class="icard k"><h4>Refacciones</h4><ul><li>York, Carrier, Trane</li><li>Daikin y Rittal</li><li>VRF · TVR · VRV</li></ul></div>
+    </div>
+    <div class="vrf">
+      <div class="box">
+        <img class="photo" src="/images/obra/obra-vrv-daikin.jpg" alt="Condensadora Daikin VRV en azotea" style="object-position:50% 50%" loading="lazy"><h4>¿Qué es un sistema VRF?</h4>
+        Flujo de Refrigerante Variable: un compresor que ajusta su velocidad para atender varias zonas de un edificio, cada una con su propia temperatura.
+        <div class="flow"><span>Unidad exterior</span><em>→</em><span>Tubería de refrigerante</span><em>→</em><span>Unidades interiores por zona</span></div>
+        <div class="flow" style="margin-top:12px"><span>Hasta 30% menos energía</span><span>Modular</span><span>Silencioso</span><span>Control por cuarto</span></div>
+      </div>
+      <div class="box">
+        <h4>¿Conviene en su edificio?</h4>
+        Recomendado para edificios medianos y grandes. Evaluamos si la tecnología es conveniente para su proyecto antes de cotizar.
+        <div class="fit"><div>Oficinas</div><div>Hoteles</div><div>Plazas</div><div>Hospitales</div><div>Casas grandes</div></div>
+        <a class="btn wa" style="margin-top:14px" href="https://wa.me/526141420285?text=Hola%2C%20quiero%20evaluar%20un%20proyecto%20VRF" target="_blank" rel="noopener">Solicitar evaluación VRF</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- EMPRESA -->
+<section id="empresa" class="sec">
+  <div class="wrap">
+    <div class="sh">
+      <div><div class="eyebrow">04 · Empresa</div><h2>Un equipo, una visión</h2></div>
+      <p>Mejora continua para superar las expectativas de clientes, equipo y comunidad. No hay trabajo demasiado pequeño.</p>
+    </div>
+    <div class="testi">
+      <figure class="tcard">
+        <div class="avatar"><div class="ring"><img src="/images/equipo/alfredo-rivera.jpg" alt="Ing. Alfredo Rivera Viezcas" style="transform:scale(1.3);transform-origin:44% 15%"></div></div>
+        <blockquote>“Nos enorgullece brindar un servicio excepcional en el que pueda confiar; no hay trabajo demasiado pequeño para nuestro equipo experimentado de técnicos de refrigeración.”</blockquote>
+        <figcaption><b>Ing. Alfredo Rivera Viezcas</b><span>Gerente General · Team Refrigeración</span></figcaption>
+      </figure>
+      <figure class="tcard">
+        <div class="avatar"><div class="ring"><img src="/images/equipo/eduardo-rivera.jpg" alt="Ing. Eduardo A. Rivera" style="transform:scale(1.35);transform-origin:49% 6%"></div></div>
+        <blockquote>“Todos nuestros clientes comparten la necesidad de un sistema de refrigeración que minimice los costos de operación y mantenga las temperaturas vitales del proceso.”</blockquote>
+        <figcaption><b>Ing. Eduardo A. Rivera</b><span>Jefe de Operaciones · Team Refrigeración</span></figcaption>
+      </figure>
+    </div>
+    <div class="egrid">
+      <div>
+        <div class="mini">Historia</div>
+        <ul class="tl">
+          <li><b>1998 · Fundación</b>Servicio de mantenimiento preventivo y correctivo para empresas e industrias de Chihuahua.</li>
+          <li><b>Industria maquiladora</b>Clientes aeroespaciales, automotrices y de manufactura en el estado.</li>
+          <li><b>Hoy</b>VRF y contratos de mantenimiento para industria, comercio y hogar.</li>
+        </ul>
+        <div class="mini">Valores</div>
+        <div class="vals"><div>100% satisfacción del cliente</div><div>Abiertos y honestos</div><div>Trabajo en equipo</div><div>Cambio para mejorar</div></div>
+      </div>
+      <div>
+        <div class="mini">Certificados en servicio y garantías</div>
+        <div class="logos"><span>York</span><span>Carrier</span><span>Rittal</span><span>Trane</span><span>Daikin</span></div>
+        <div class="mini">Clientes</div>
+        <div class="logos"><span>Lutron</span><span>Labinal Safran</span><span>Fokker</span><span>Cessna</span><span>Atlas Aerospace</span><span>Bourns</span><span>Key Plastics</span><span>Vitromex</span><span>Grupo Modelo</span><span>Quality Inn</span><span>Tec de Monterrey</span><span>Gob. del Estado</span></div>
+        
+      </div>
+    </div>
+    <div class="creds">
+      <div class="creds-h">
+        <div><div class="mini" style="margin:0">Capacitación a lo largo de los años</div>
+          <p>Cursos, certificados y cartas de fabricantes y distribuidores, de 1999 a 2017. Toque un documento para verlo.</p></div>
+        <div class="cnav"><button class="cprev" aria-label="Anterior">‹</button><button class="cnext" aria-label="Siguiente">›</button></div>
+      </div>
+      <ol class="ctrack" id="ctrack">
+        <li class="cred">
+          <span class="cyear">1999</span>
+          <button class="cpaper" data-i="0" aria-label="Ver documento: Reciclaje y servicio de refrigerante CFC-12"><img src="/images/certificaciones/1999-macs.png" alt="Certificado MACS Worldwide: Reciclaje y servicio de refrigerante CFC-12" loading="lazy"></button>
+          <div class="cinfo"><span class="ctype">Certificado</span><b>Reciclaje y servicio de refrigerante CFC-12</b><small>MACS Worldwide</small><small>Sección 609 · Clean Air Act (EUA)</small></div>
+        </li>
+        <li class="cred">
+          <span class="cyear">2014</span>
+          <button class="cpaper" data-i="1" aria-label="Ver documento: Alta como Centro de Servicio Carrier"><img src="/images/certificaciones/2014-carrier.png" alt="Carta Carrier Enterprise México: Alta como Centro de Servicio Carrier" loading="lazy"></button>
+          <div class="cinfo"><span class="ctype">Carta</span><b>Alta como Centro de Servicio Carrier</b><small>Carrier Enterprise México</small><small>Tijuana, B.C. · 11 de febrero</small></div>
+        </li>
+        <li class="cred">
+          <span class="cyear">2014</span>
+          <button class="cpaper" data-i="2" aria-label="Ver documento: Capacitación TVR II"><img src="/images/certificaciones/2014-trane-tvr.png" alt="Certificado Proveedora de Climas · Trane: Capacitación TVR II" loading="lazy"></button>
+          <div class="cinfo"><span class="ctype">Certificado</span><b>Capacitación TVR II</b><small>Proveedora de Climas · Trane</small><small>Monterrey, N.L. · 2 de julio · 8 horas</small></div>
+        </li>
+        <li class="cred">
+          <span class="cyear">2015</span>
+          <button class="cpaper" data-i="3" aria-label="Ver documento: Curso teórico-práctico Chillers Scroll CGAM"><img src="/images/certificaciones/2015-trane-chiller.png" alt="Certificado Proveedora de Climas · Trane: Curso teórico-práctico Chillers Scroll CGAM" loading="lazy"></button>
+          <div class="cinfo"><span class="ctype">Certificado</span><b>Curso teórico-práctico Chillers Scroll CGAM</b><small>Proveedora de Climas · Trane</small><small>Monterrey, N.L. · 22 al 25 de septiembre</small></div>
+        </li>
+        <li class="cred">
+          <span class="cyear">2016</span>
+          <button class="cpaper" data-i="4" aria-label="Ver documento: Seminario Copeland &amp; Chemours"><img src="/images/certificaciones/2016-copeland.png" alt="Reconocimiento Refrigeración Lozano · Emerson: Seminario Copeland &amp; Chemours" loading="lazy"></button>
+          <div class="cinfo"><span class="ctype">Reconocimiento</span><b>Seminario Copeland &amp; Chemours</b><small>Refrigeración Lozano · Emerson</small><small>Chihuahua, Chih. · 30 de noviembre</small></div>
+        </li>
+        <li class="cred">
+          <span class="cyear">2016</span>
+          <button class="cpaper" data-i="5" aria-label="Ver documento: Distribuidor autorizado Carrier VRF y Toshiba"><img src="/images/certificaciones/2016-carrier-vrf.png" alt="Carta Carrier Enterprise México: Distribuidor autorizado Carrier VRF y Toshiba" loading="lazy"></button>
+          <div class="cinfo"><span class="ctype">Carta</span><b>Distribuidor autorizado Carrier VRF y Toshiba</b><small>Carrier Enterprise México</small><small>Diciembre</small></div>
+        </li>
+        <li class="cred">
+          <span class="cyear">2017</span>
+          <button class="cpaper" data-i="6" aria-label="Ver documento: Capacitación para prestadores de servicio"><img src="/images/certificaciones/2017-rittal.png" alt="Certificado Rittal: Capacitación para prestadores de servicio" loading="lazy"></button>
+          <div class="cinfo"><span class="ctype">Certificado</span><b>Capacitación para prestadores de servicio</b><small>Rittal</small><small>Toluca, Edo. Méx. · 30 y 31 de mayo</small></div>
+        </li>
+      </ol>
+    </div>
+    <dialog class="cdlg" id="cdlg">
+      <button class="cx" aria-label="Cerrar">×</button>
+      <figure><div class="cdoc"><img id="cdImg" alt=""></div>
+        <figcaption><span class="ctype" id="cdType"></span><b id="cdTitle"></b><small id="cdMeta"></small>
+          <span class="cdnote">Imagen recuperada del sitio anterior; la resolución original es baja.</span>
+          <span class="cdnav"><button class="cdp">‹ Anterior</button><button class="cdn">Siguiente ›</button></span></figcaption></figure>
+    </dialog>
+
+  </div>
+</section>
+
+<!-- CONTACTO -->
+<section id="contacto" class="sec white">
+  <div class="wrap">
+    <div class="sh">
+      <div><div class="eyebrow">05 · Contacto</div><h2>Cuéntenos qué necesita resolver</h2></div>
+      <p>Escríbanos o llámenos para cotizar y recibir orientación sobre su equipo o proyecto.</p>
+    </div>
+    <div class="ctwo">
+    <!-- Solicitud rápida: arma un mensaje de WhatsApp -->
+    <div class="tri">
+      <h3>Solicitud rápida</h3>
+      <p class="s">Elija lo que aplica y le enviamos el caso por WhatsApp ya armado.</p>
+      <label class="q">Tipo de espacio</label>
+      <div class="seg" data-k="esp">
+        <button>Planta / maquila</button><button>Comercio / oficina</button><button>Casa</button><button>Restaurante</button>
+      </div>
+      <label class="q">¿Qué necesita?</label>
+      <div class="seg" data-k="nec">
+        <button>No enfría / falla</button><button>Mantenimiento</button><button>Equipo nuevo</button><button>Proyecto VRF</button><button>Cuarto frío / chiller</button>
+      </div>
+      <label class="q">Marca o equipo (opcional)</label>
+      <input id="eq" placeholder="Ej. Carrier paquete 10 TR, minisplit York…">
+      <div class="out">
+        <a id="waBtn" class="btn wa" href="https://wa.me/526141420285" target="_blank" rel="noopener">Enviar por WhatsApp</a>
+        <a class="btn ghost" href="tel:+526143130551">Llamar</a>
+      </div>
+      <p class="hint" id="preview">Mensaje: —</p>
+    </div>
+      <div>
+        <div class="cgrid">
+          <a class="cc" href="tel:+526143130551"><small>Teléfono</small><b>614 313 0551</b><p>Atención principal ↗</p></a>
+          <a class="cc wa" href="https://wa.me/526141420285?text=Hola%20Team%20Refrigeraci%C3%B3n%2C%20quiero%20una%20cotizaci%C3%B3n" target="_blank" rel="noopener"><small>WhatsApp</small><b>614 142 0285</b><p>Solicitar cotización ↗</p></a>
+          <a class="cc" href="mailto:teamrefrigeracion@yahoo.com.mx?subject=Cotizaci%C3%B3n"><small>Correo</small><b class="em">teamrefrigeracion<br>@yahoo.com.mx</b><p>Consultas y cotizaciones ↗</p></a>
+          <a class="cc" href="https://www.google.com/maps/search/?api=1&amp;query=San+Luis+Potos%C3%AD+2718+Av%C3%ADcola+II+Chihuahua" target="_blank" rel="noopener"><small>Ubicación</small><b>San Luis Potosí 2718</b><p>Avícola II, Chihuahua ↗</p></a>
+        </div>
+        
+      </div>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer class="site"><div class="wrap">
+  <div class="logo"><svg width="22" height="24" viewBox="0 0 40 44" aria-hidden="true"><polygon points="4,11 15,11 11,19 0,19" fill="#22B87E"/><polygon points="24,5 35,5 25,24 14,24" fill="#8B5CF6"/><polygon points="18,27 29,27 22,40 11,40" fill="#F5A01A"/></svg>Team <span>Refrigeración</span></div>
+  <div>Chihuahua, Chih., México · <a href="https://www.facebook.com/teamrefrigeracion" target="_blank" rel="noopener">Facebook</a> · Las marcas son propiedad de sus respectivos dueños.</div>
+</div></footer>
+
+<script>
+// luz que sigue al mouse (un cuadro de animación por movimiento)
+const glow=document.getElementById('glow');let gReq=false;
+window.addEventListener('mousemove',e=>{if(gReq)return;gReq=true;requestAnimationFrame(()=>{
+  glow.style.setProperty('--mx',e.clientX+'px');glow.style.setProperty('--my',e.clientY+'px');glow.classList.add('on');gReq=false})},{passive:true});
+document.documentElement.addEventListener('mouseleave',()=>glow.classList.remove('on'));
+
+// tabs de servicios
+document.querySelectorAll('#tabs button').forEach(b=>b.onclick=()=>{
+  document.querySelectorAll('#tabs button').forEach(x=>x.classList.toggle('on',x===b));
+  document.querySelectorAll('.panel').forEach(p=>p.classList.toggle('on',p.dataset.p===b.dataset.t));
+});
+
+// solicitud rápida -> WhatsApp
+const sel={esp:'',nec:''};
+document.querySelectorAll('.seg').forEach(g=>g.querySelectorAll('button').forEach(b=>b.onclick=()=>{
+  g.querySelectorAll('button').forEach(x=>x.classList.toggle('on',x===b));sel[g.dataset.k]=b.textContent;upd();
+}));
+const eq=document.getElementById('eq');eq.oninput=upd;
+function upd(){
+  const parts=['Hola Team Refrigeración.'];
+  if(sel.nec)parts.push('Necesito: '+sel.nec+'.');
+  if(sel.esp)parts.push('Lugar: '+sel.esp+'.');
+  if(eq.value.trim())parts.push('Equipo: '+eq.value.trim()+'.');
+  const msg=parts.join(' ');
+  document.getElementById('preview').textContent='Mensaje: '+(parts.length>1?msg:'—');
+  document.getElementById('waBtn').href='https://wa.me/526141420285?text='+encodeURIComponent(msg);
+}
+
+// checklist de síntomas (funciona en cada bloque .signs)
+const msgs=['Marque lo que ha notado.','Conviene una revisión preventiva en la próxima visita.','Programe un diagnóstico: el equipo está perdiendo eficiencia.','Llame pronto: hay riesgo de paro y de daño mayor.'];
+document.querySelectorAll('.signs').forEach(sg=>{const bx=[...sg.querySelectorAll('input')];bx.forEach(b=>b.onchange=()=>{
+  const n=bx.filter(x=>x.checked).length;sg.querySelector('.mbar').style.width=(n/bx.length*100)+'%';
+  sg.querySelector('.verdict').textContent=msgs[n===0?0:n<=2?1:n<=4?2:3]})});
+
+// menú activo según scroll
+const links=[...document.querySelectorAll('#nav a')];
+const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting)links.forEach(a=>a.classList.toggle('on',a.getAttribute('href')==='#'+e.target.id))}),{rootMargin:'-40% 0px -55% 0px'});
+document.querySelectorAll('main section[id]').forEach(s=>io.observe(s));
+links.forEach(a=>a.onclick=()=>document.getElementById('nav').classList.remove('open'));
+
+// carrusel
+const sl=[...document.querySelectorAll('#car .slide')],dotsEl=document.getElementById('dots');let ci=0,timer;
+sl.forEach((_,i)=>{const b=document.createElement('button');b.setAttribute('aria-label','Imagen '+(i+1));b.onclick=()=>{show(i);start()};dotsEl.appendChild(b)});
+function show(i){ci=i;sl.forEach((s,k)=>s.classList.toggle('on',k===i));[...dotsEl.children].forEach((d,k)=>d.classList.toggle('on',k===i));
+  document.getElementById('capT').textContent=sl[i].dataset.cap;document.getElementById('capS').textContent=sl[i].dataset.sub}
+function start(){clearInterval(timer);timer=setInterval(()=>show((ci+1)%sl.length),5000)}
+const car=document.getElementById('car');car.onmouseenter=()=>clearInterval(timer);car.onmouseleave=start;show(0);start();
+
+
+// reproductor tipo historia (uno por cada [data-player])
+const STORIES=[
+  {img:'/images/obra/obra-grua.jpg',t:'Maniobra con grúa en planta industrial',tag:'Industrial'},
+  {img:'/images/obra/obra-compresor.jpg',t:'Cambio de compresor',tag:'Industrial'},
+  {img:'/images/obra/obra-vrv-daikin.jpg',t:'Instalación VRV en azotea',tag:'VRF · Daikin'},
+  {img:'/images/obra/obra-cassette.jpg',t:'Instalación de cassette en plafón',tag:'Comercial'},
+  {img:'/images/obra/obra-paquete-tecnicos.jpg',t:'Instalación de unidad paquete',tag:'Industrial'}];
+const DUR=5000;
+const LOGO='<svg width="18" height="20" viewBox="0 0 40 44"><polygon points="4,11 15,11 11,19 0,19" fill="#22B87E"/><polygon points="24,5 35,5 25,24 14,24" fill="#8B5CF6"/><polygon points="18,27 29,27 22,40 11,40" fill="#F5A01A"/></svg>';
+function makePlayer(el,onChange){
+  el.innerHTML='<div class="pbars">'+STORIES.map(()=>'<span><i></i></span>').join('')+'</div>'+
+    STORIES.map((s,k)=>`<img class="pimg" src="${s.img}" alt="${s.t}" loading="${k?'lazy':'eager'}">`).join('')+
+    '<div class="phead"><span class="av">'+LOGO+'</span><span><b>teamrefrigeracion</b><br><small>Chihuahua</small></span><button class="pp" aria-label="Pausar">❚❚</button></div>'+
+    '<div class="pcap"><span class="tag"></span><b></b></div><button class="pz prev" aria-label="Anterior"></button><button class="pz next" aria-label="Siguiente"></button>';
+  const bars=[...el.querySelectorAll('.pbars i')],imgs=[...el.querySelectorAll('.pimg')],pp=el.querySelector('.pp');
+  let i=0,elapsed=0,last=performance.now(),hold=false,manual=false,visible=false;
+  const paused=()=>hold||manual||!visible;
+  function go(n){i=(n+STORIES.length)%STORIES.length;elapsed=0;
+    imgs.forEach((im,k)=>im.classList.toggle('on',k===i));bars.forEach((b,k)=>b.style.width=k<i?'100%':'0');
+    el.querySelector('.pcap .tag').textContent=STORIES[i].tag;el.querySelector('.pcap b').textContent=STORIES[i].t;onChange&&onChange(i,0)}
+  function tick(now){const dt=now-last;last=now;
+    if(!paused()){elapsed+=dt;const f=Math.min(elapsed/DUR,1);bars[i].style.width=f*100+'%';onChange&&onChange(i,f);if(f>=1)go(i+1)}
+    el.classList.toggle('paused',paused());requestAnimationFrame(tick)}
+  el.querySelector('.prev').onclick=()=>go(i-1);el.querySelector('.next').onclick=()=>go(i+1);
+  pp.onclick=e=>{e.stopPropagation();manual=!manual;pp.textContent=manual?'▶':'❚❚';pp.setAttribute('aria-label',manual?'Reproducir':'Pausar')};
+  el.addEventListener('mouseenter',()=>hold=true);el.addEventListener('mouseleave',()=>hold=false);
+  el.addEventListener('keydown',e=>{if(e.key==='ArrowLeft')go(i-1);if(e.key==='ArrowRight')go(i+1);if(e.key===' '){e.preventDefault();pp.click()}});
+  new IntersectionObserver(es=>es.forEach(x=>visible=x.isIntersecting),{threshold:.4}).observe(el);
+  go(0);requestAnimationFrame(tick);return{go};
+}
+document.querySelectorAll('[data-player]').forEach(el=>makePlayer(el));
+
+// credenciales: desplazamiento y visor
+const CREDS=[
+  {img:'/images/certificaciones/1999-macs.png',y:'1999',em:'MACS Worldwide',tipo:'Certificado',t:'Reciclaje y servicio de refrigerante CFC-12',d:'Sección 609 · Clean Air Act (EUA)'},
+  {img:'/images/certificaciones/2014-carrier.png',y:'2014',em:'Carrier Enterprise México',tipo:'Carta',t:'Alta como Centro de Servicio Carrier',d:'Tijuana, B.C. · 11 de febrero'},
+  {img:'/images/certificaciones/2014-trane-tvr.png',y:'2014',em:'Proveedora de Climas · Trane',tipo:'Certificado',t:'Capacitación TVR II',d:'Monterrey, N.L. · 2 de julio · 8 horas'},
+  {img:'/images/certificaciones/2015-trane-chiller.png',y:'2015',em:'Proveedora de Climas · Trane',tipo:'Certificado',t:'Curso teórico-práctico Chillers Scroll CGAM',d:'Monterrey, N.L. · 22 al 25 de septiembre'},
+  {img:'/images/certificaciones/2016-copeland.png',y:'2016',em:'Refrigeración Lozano · Emerson',tipo:'Reconocimiento',t:'Seminario Copeland & Chemours',d:'Chihuahua, Chih. · 30 de noviembre'},
+  {img:'/images/certificaciones/2016-carrier-vrf.png',y:'2016',em:'Carrier Enterprise México',tipo:'Carta',t:'Distribuidor autorizado Carrier VRF y Toshiba',d:'Diciembre'},
+  {img:'/images/certificaciones/2017-rittal.png',y:'2017',em:'Rittal',tipo:'Certificado',t:'Capacitación para prestadores de servicio',d:'Toluca, Edo. Méx. · 30 y 31 de mayo'}];
+const ctrack=document.getElementById('ctrack'),cdlg=document.getElementById('cdlg');let cdi=0;
+const step=()=>ctrack.querySelector('.cred').getBoundingClientRect().width+18;
+document.querySelector('.cprev').onclick=()=>ctrack.scrollBy({left:-step()*2,behavior:'smooth'});
+document.querySelector('.cnext').onclick=()=>ctrack.scrollBy({left:step()*2,behavior:'smooth'});
+function openCred(i){cdi=(i+CREDS.length)%CREDS.length;const c=CREDS[cdi];
+  document.getElementById('cdImg').src=c.img;document.getElementById('cdImg').alt=c.tipo+' '+c.em+': '+c.t;
+  document.getElementById('cdType').textContent=c.y+' · '+c.tipo;document.getElementById('cdTitle').textContent=c.t;
+  document.getElementById('cdMeta').textContent=c.em+' · '+c.d;if(!cdlg.open)cdlg.showModal()}
+ctrack.querySelectorAll('.cpaper').forEach(b=>b.onclick=()=>openCred(+b.dataset.i));
+cdlg.querySelector('.cx').onclick=()=>cdlg.close();
+cdlg.querySelector('.cdp').onclick=()=>openCred(cdi-1);cdlg.querySelector('.cdn').onclick=()=>openCred(cdi+1);
+cdlg.addEventListener('click',e=>{if(e.target===cdlg)cdlg.close()});
+cdlg.addEventListener('keydown',e=>{if(e.key==='ArrowLeft')openCred(cdi-1);if(e.key==='ArrowRight')openCred(cdi+1)});
+</script>
+</body>
 </html>
